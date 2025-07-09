@@ -285,3 +285,233 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 })
+
+document.addEventListener("DOMContentLoaded", () => {
+  const sliderTrack = document.getElementById("ezSliderTrack")
+  const prevBtn = document.getElementById("ezPrevBtn")
+  const nextBtn = document.getElementById("ezNextBtn")
+  const dots = document.querySelectorAll(".ez-dot")
+  const slides = document.querySelectorAll(".ez-slide")
+
+  let currentSlide = 0
+  const totalSlides = slides.length
+  let autoSlideInterval
+  let isTransitioning = false
+
+  // Initialize slider
+  function initSlider() {
+    updateSlider()
+    startAutoSlide()
+    addEventListeners()
+    preloadImages()
+  }
+
+  // Update slider position and active states
+  function updateSlider() {
+    if (isTransitioning) return
+
+    isTransitioning = true
+
+    // Calculate transform position
+    const translateX = -currentSlide * (100 / totalSlides)
+    sliderTrack.style.transform = `translateX(${translateX}%)`
+
+    // Update dots
+    dots.forEach((dot, index) => {
+      dot.classList.toggle("active", index === currentSlide)
+    })
+
+    // Reset transition flag
+    setTimeout(() => {
+      isTransitioning = false
+    }, 1300)
+  }
+
+  // Go to next slide
+  function nextSlide() {
+    if (isTransitioning) return
+    currentSlide = (currentSlide + 1) % totalSlides
+    updateSlider()
+    resetAutoSlide()
+  }
+
+  // Go to previous slide
+  function prevSlide() {
+    if (isTransitioning) return
+    currentSlide = currentSlide === 0 ? totalSlides - 1 : currentSlide - 1
+    updateSlider()
+    resetAutoSlide()
+  }
+
+  // Go to specific slide
+  function goToSlide(slideIndex) {
+    if (isTransitioning || slideIndex === currentSlide) return
+    currentSlide = slideIndex
+    updateSlider()
+    resetAutoSlide()
+  }
+
+  // Auto slide functionality
+  function startAutoSlide() {
+    autoSlideInterval = setInterval(nextSlide, 5000)
+  }
+
+  function stopAutoSlide() {
+    clearInterval(autoSlideInterval)
+  }
+
+  function resetAutoSlide() {
+    stopAutoSlide()
+    startAutoSlide()
+  }
+
+  // Add event listeners
+  function addEventListeners() {
+    // Navigation buttons
+    nextBtn.addEventListener("click", nextSlide)
+    prevBtn.addEventListener("click", prevSlide)
+
+    // Dots navigation
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => goToSlide(index))
+    })
+
+    // Keyboard navigation
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") {
+        prevSlide()
+      } else if (e.key === "ArrowRight") {
+        nextSlide()
+      }
+    })
+
+    // Pause auto-slide on hover
+    const sliderContainer = document.querySelector(".ez-slider-container")
+    sliderContainer.addEventListener("mouseenter", stopAutoSlide)
+    sliderContainer.addEventListener("mouseleave", startAutoSlide)
+
+    // Touch/swipe support
+    let startX = 0
+    let endX = 0
+    let startY = 0
+    let endY = 0
+
+    sliderContainer.addEventListener(
+      "touchstart",
+      (e) => {
+        startX = e.touches[0].clientX
+        startY = e.touches[0].clientY
+        stopAutoSlide()
+      },
+      { passive: true },
+    )
+
+    sliderContainer.addEventListener(
+      "touchmove",
+      (e) => {
+        // Prevent vertical scrolling while swiping horizontally
+        const deltaX = Math.abs(e.touches[0].clientX - startX)
+        const deltaY = Math.abs(e.touches[0].clientY - startY)
+
+        if (deltaX > deltaY) {
+          e.preventDefault()
+        }
+      },
+      { passive: false },
+    )
+
+    sliderContainer.addEventListener(
+      "touchend",
+      (e) => {
+        endX = e.changedTouches[0].clientX
+        endY = e.changedTouches[0].clientY
+        handleSwipe()
+        startAutoSlide()
+      },
+      { passive: true },
+    )
+
+    // Handle swipe gestures
+    function handleSwipe() {
+      const deltaX = startX - endX
+      const deltaY = startY - endY
+      const minSwipeDistance = 50
+
+      // Check if horizontal swipe is more significant than vertical
+      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > minSwipeDistance) {
+        if (deltaX > 0) {
+          nextSlide()
+        } else {
+          prevSlide()
+        }
+      }
+    }
+
+    // Visibility change handling
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "visible") {
+        startAutoSlide()
+      } else {
+        stopAutoSlide()
+      }
+    })
+
+    // Window focus/blur handling
+    window.addEventListener("focus", startAutoSlide)
+    window.addEventListener("blur", stopAutoSlide)
+
+    // Intersection Observer for performance
+    const observerOptions = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.1,
+    }
+
+    const sliderObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          startAutoSlide()
+        } else {
+          stopAutoSlide()
+        }
+      })
+    }, observerOptions)
+
+    sliderObserver.observe(sliderContainer)
+  }
+
+  // Preload images for better performance
+  function preloadImages() {
+    slides.forEach((slide, index) => {
+      const img = slide.querySelector("img")
+      if (img && img.src) {
+        const preloadImg = new Image()
+        preloadImg.src = img.src
+
+        // Add loading state
+        img.addEventListener("load", () => {
+          img.style.animation = "none"
+        })
+      }
+    })
+  }
+
+  // Handle resize events
+  window.addEventListener("resize", () => {
+    updateSlider()
+  })
+
+  // Initialize everything
+  initSlider()
+
+  // Expose methods for external control (optional)
+  window.ezSlider = {
+    next: nextSlide,
+    prev: prevSlide,
+    goTo: goToSlide,
+    start: startAutoSlide,
+    stop: stopAutoSlide,
+    getCurrentSlide: () => currentSlide,
+    getTotalSlides: () => totalSlides,
+  }
+})
