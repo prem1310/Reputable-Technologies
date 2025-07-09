@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Reputable Technologies Pvt Ltd</title>
+    <link rel="stylesheet" href="styles.css">
+    <style> 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        /* About Us Page Styles */
+        .about-main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            background: transparent;
+        }
+
+        .about-hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(59, 130, 246, 0.05) 0%, rgba(147, 51, 234, 0.05) 100%);
+            z-index: 1;
+        }
+
+        .about-hero > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-logo {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            border-radius: 20px;
+            background: white;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+            padding: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .about-logo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-hero h1 {
+            font-size: 2.5rem;
+            color: #1e293b;
+            font-weight: 800;
+            margin: 0;
+            line-height: 1.2;
+            letter-spacing: -0.025em;
+        }
+
+        .about-content {
+            background: white;
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+            margin-bottom: 3rem;
+        }
+
+        .about-content h2 {
+            font-size: 1.75rem;
+            color: #1e293b;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .about-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .about-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 2px;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .about-content ul {
+            margin-bottom: 2rem;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .about-content li {
+            font-size: 1.1rem;
+            color: #475569;
+            line-height: 1.7;
+            margin-bottom: 0.8rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .about-content li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #10b981;
+            font-weight: bold;
+            font-size: 1.2rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            background: #ecfdf5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        .about-content li strong {
+            color: #1e293b;
+            font-weight: 600;
+        }
+
+        /* Industries We Serve Section */
+        .industries-section {
+            background: #f1f5f9;
+            padding: 4rem 3rem;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .industries-title {
+            font-size: 2.5rem;
+            color: #1e293b;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.025em;
+        }
+
+        .industries-subtitle {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .industry-card {
+            background: white;
+            padding: 2rem 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 180px;
+            cursor: pointer;
+        }
+
+        .industry-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .industry-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .industry-card:hover .industry-icon {
+            transform: scale(1.1);
+        }
+
+        .industry-card h3 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #1e293b;
+            letter-spacing: 0.5px;
+            line-height: 1.3;
+            margin: 0;
+        }
+
+        /* Industry Icon Colors */
+        .industry-icon.retail {
+            background: #ecfdf5;
+            color: #10b981;
+        }
+
+        .industry-icon.education {
+            background: #eff6ff;
+            color: #3b82f6;
+        }
+
+        .industry-icon.healthcare {
+            background: #fef2f2;
+            color: #ef4444;
+        }
+
+        .industry-icon.logistics {
+            background: #eff6ff;
+            color: #2563eb;
+        }
+
+        .industry-icon.social {
+            background: #ecfeff;
+            color: #06b6d4;
+        }
+
+        .industry-icon.realestate {
+            background: #faf5ff;
+            color: #a855f7;
+        }
+
+        .industry-icon.travel {
+            background: #f3e8ff;
+            color: #8b5cf6;
+        }
+
+        .industry-icon.food {
+            background: #fffbeb;
+            color: #f59e0b;
+        }
+
+        .industry-icon.ondemand {
+            background: #f0fdf4;
+            color: #22c55e;
+        }
+
+        .industry-icon.gaming {
+            background: #fff7ed;
+            color: #f97316;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideIn 0.3s ease;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 2rem 1rem 2rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .modal-header h2 {
+            font-size: 1.5rem;
+            color: #1e293b;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .close-btn {
+            font-size: 2rem;
+            color: #64748b;
+            cursor: pointer;
+            transition: color 0.2s ease;
+            line-height: 1;
+        }
+
+        .close-btn:hover {
+            color: #ef4444;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .required {
+            color: #ef4444;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-group input[readonly] {
+            background-color: #f8fafc;
+            color: #64748b;
+            cursor: not-allowed;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-actions {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Confirmation Modal */
+        .confirmation-modal {
+            max-width: 400px;
+        }
+
+        .confirmation-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .confirm-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-width: 80px;
+        }
+
+        .yes-btn {
+            background: #10b981;
+            color: white;
+        }
+
+        .yes-btn:hover {
+            background: #059669;
+        }
+
+        .no-btn {
+            background: #ef4444;
+            color: white;
+        }
+
+        .no-btn:hover {
+            background: #dc2626;
+        }
+
+        /* Success Modal */
+        .success-modal {
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: #10b981;
+            margin-bottom: 1rem;
+        }
+
+        .success-modal p {
+            font-size: 1.1rem;
+            color: #475569;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .industries-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+            }
+            
+            .industries-section {
+                padding: 3rem 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-main {
+                margin: 1rem auto;
+                padding: 0 1rem;
+            }
+            
+            .about-hero {
+                padding: 2rem 1.5rem;
+                margin-bottom: 2rem;
+                border-radius: 16px;
+            }
+            
+            .about-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .about-logo {
+                width: 90px;
+                height: 90px;
+                padding: 12px;
+                border-radius: 16px;
+            }
+            
+            .about-content {
+                padding: 2rem 1.5rem;
+                border-radius: 12px;
+            }
+            
+            .about-content h2 {
+                font-size: 1.5rem;
+                margin-top: 2rem;
+            }
+            
+            .about-content p,
+            .about-content li {
+                font-size: 1rem;
+                text-align: left;
+            }
+            
+            .about-content li {
+                padding-left: 1.8rem;
+            }
+            
+            .industries-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .industries-title {
+                font-size: 2rem;
+            }
+            
+            .industries-section {
+                padding: 2rem 1.5rem;
+                border-radius: 16px;
+            }
+            
+            .industry-card {
+                padding: 1.5rem 1rem;
+                min-height: 150px;
+            }
+            
+            .industry-icon {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .industry-card h3 {
+                font-size: 0.8rem;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 1rem;
+            }
+            
+            .modal-header,
+            .modal-body {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-hero {
+                padding: 1.5rem 1rem;
+            }
+            
+            .about-hero h1 {
+                font-size: 1.5rem;
+            }
+            
+            .about-logo {
+                width: 70px;
+                height: 70px;
+                padding: 10px;
+            }
+            
+            .about-content {
+                padding: 1.5rem 1rem;
+            }
+            
+            .about-content h2 {
+                font-size: 1.3rem;
+            }
+            
+            .industries-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .industries-title {
+                font-size: 1.8rem;
+            }
+            
+            .industries-subtitle {
+                font-size: 1rem;
+            }
+            
+            .confirmation-actions {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        /* Animation for smooth entrance */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .about-hero,
+        .about-content,
+        .industries-section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .about-content {
+            animation-delay: 0.2s;
+        }
+
+        .industries-section {
+            animation-delay: 0.4s;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-brand">
+            <img src="rtpllogo.png" alt="Reputable Technologies Logo" class="logo">
+            <span class="company-name">Reputable Technologies Pvt Ltd</span>
+        </div>
+        <nav>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+
+                <li class="has-submenu">
+                <a href="#company">Company <span class="dropdown-arrow">▼</span></a>
+                <ul class="submenu company-submenu">
+                    <li>
+                    <a href="about.html">
+                        <div>
+                        <strong>About Us</strong><br>
+                        <span>Our Story & Mission</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#team.html">
+                        <div>
+                        <strong>Our Team</strong><br>
+                        <span>Meet Our Experts</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#careers.html">
+                        <div>
+                        <strong>Careers</strong><br>
+                        <span>Join Our Team</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#news-events.html">
+                        <div>
+                        <strong>News & Events</strong><br>
+                        <span>Latest Updates</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#awards.html">
+                        <div>
+                        <strong>Awards</strong><br>
+                        <span>Recognition & Achievements</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#certifications.html">
+                        <div>
+                        <strong>Certifications</strong><br>
+                        <span>Quality Standards</span>
+                        </div>
+                    </a>
+                    </li>
+                </ul>
+                </li>
+
+                <li class="has-submenu">
+                <a href="#products">Products <span class="dropdown-arrow">▼</span></a>
+                <ul class="submenu products-submenu">
+                    <li>
+                    <a href="ezattendancepro.html">
+                        <div>
+                        <strong>EzAttendancePro</strong><br>
+                        <span>Attendance & Leave Management System</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="ezpayrollpro.html">
+                        <div>
+                        <strong>EzPayrollPro</strong><br>
+                        <span>Payroll Management System</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="ezaccesspro.html">
+                        <div>
+                        <strong>EzAccessPro</strong><br>
+                        <span>Access Management System</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="ezvms.html">
+                        <div>
+                        <strong>EzVMS</strong><br>
+                        <span>Visitor Management System</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="ezcrm.html">
+                        <div>
+                        <strong>EzCRM</strong><br>
+                        <span>Customer Relationship Management System</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="ezcanteen.html">
+                        <div>
+                        <strong>EzCanteen</strong><br>
+                        <span>Canteen Management System</span>
+                        </div>
+                    </a>
+                    </li>
+                </ul>
+                </li>
+                <li><a href="solutions.html">Solutions</a></li>
+                <li><a href="case_studies.html">Case Studies</a></li>
+                <li><a href="clientele.html">Clientele</a></li>
+                <li><a href="partner.html">Become A Partner</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="about-main">
+        <section class="about-hero">
+            <img src="rtpllogo.png" alt="Reputable Technologies Logo" class="about-logo">
+            <h1>About Reputable Technologies Pvt Ltd</h1>
+        </section>
+        
+        <section class="about-content">
+            <h2>Our Story</h2>
+            <p>
+                Reputable Technologies Pvt Ltd is a leading technology company that has been providing innovative solutions since its establishment in 2016. As an ISO 9001:2015 Certified company, we are committed to delivering high-quality products and services to our clients.
+With a track record of successfully completing over 300 projects in just six years, we have gained a reputation for excellence and reliability in the industry. Our team of skilled professionals and experts leverage their technical expertise and creativity to develop cutting-edge solutions that cater to the unique needs of our clients.
+At Reputable Technologies, we offer a wide range of services, including software development, web design and development, mobile application development, IT consulting, and digital marketing. We work with clients from various industries, including finance, healthcare, e-commerce, education, and more.
+Our approach to project management is customer-centric, focusing on understanding our clients' requirements and delivering solutions that exceed their expectations. We prioritize effective communication, transparency, and timely delivery to ensure a smooth and successful project execution.
+As a forward-thinking company, we stay up-to-date with the latest industry trends and technologies to provide our clients with innovative solutions that give them a competitive edge. Our commitment to continuous improvement and customer satisfaction has helped us build long-lasting relationships with our clients.
+In addition to our project work, we also actively participate in corporate social responsibility initiatives, supporting local communities and contributing to social causes.
+Overall, Reputable Technologies Pvt Ltd is a trusted technology partner for businesses seeking reliable and innovative solutions. With our ISO 9001:2015 certification and a strong track record of successful project deliveries, we are confident in our ability to meet and exceed the expectations of our clients.
+            </p>
+            
+            <h2>Our Mission</h2>
+            <p>
+                Our mission is to deliver cutting-edge technology solutions that streamline business processes, enhance productivity, and drive digital transformation for our clients. We are committed to quality, customer satisfaction, and continuous innovation.
+            </p>
+            
+            <h2>What We Offer</h2>
+            <ul>
+                <li><strong>EzAttendancePro:</strong> Attendance &amp; Leave Management System</li>
+                <li><strong>EzPayrollPro:</strong> Payroll Management System</li>
+                <li><strong>EzAccessPro:</strong> Access Management System</li>
+                <li><strong>EzVMS:</strong> Visitor Management System</li>
+                <li><strong>EzCRM:</strong> Customer Relationship Management System</li>
+                <li><strong>EzCanteen:</strong> Canteen Management System</li>
+            </ul>
+        </section>
+
+        <section class="industries-section">
+            <h2 class="industries-title">Industries We Serve</h2>
+            <p class="industries-subtitle">Here, We make almost every genre of applications. You name it and we build it.</p>
+            
+            <div class="industries-grid">
+                <div class="industry-card" data-industry="RETAIL, ECOMMERCE">
+                    <div class="industry-icon retail">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                            <rect x="6" y="7" width="4" height="4"/>
+                            <rect x="14" y="7" width="4" height="4"/>
+                        </svg>
+                    </div>
+                    <h3>RETAIL, ECOMMERCE</h3>
+                </div>
+
+                <div class="industry-card" data-industry="EDUCATION & E-LEARNING">
+                    <div class="industry-icon education">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                        </svg>
+                    </div>
+                    <h3>EDUCATION & E-LEARNING</h3>
+                </div>
+
+                <div class="industry-card" data-industry="HEALTHCARE & FITNESS">
+                    <div class="industry-icon healthcare">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7z"/>
+                            <path d="M12 5L8 21l4-7 4 7-4-16"/>
+                        </svg>
+                    </div>
+                    <h3>HEALTHCARE & FITNESS</h3>
+                </div>
+
+                <div class="industry-card" data-industry="LOGISTICS & DISTRIBUTION">
+                    <div class="industry-icon logistics">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="1" y="3" width="15" height="13"/>
+                            <polygon points="16,8 20,8 23,11 23,16 16,16"/>
+                            <circle cx="5.5" cy="18.5" r="2.5"/>
+                            <circle cx="18.5" cy="18.5" r="2.5"/>
+                        </svg>
+                    </div>
+                    <h3>LOGISTICS & DISTRIBUTION</h3>
+                </div>
+
+                <div class="industry-card" data-industry="SOCIAL NETWORKING">
+                    <div class="industry-icon social">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3>SOCIAL NETWORKING</h3>
+                </div>
+
+                <div class="industry-card" data-industry="REAL ESTATE">
+                    <div class="industry-icon realestate">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 21h18"/>
+                            <path d="M5 21V7l8-4v18"/>
+                            <path d="M19 21V11l-6-4"/>
+                            <path d="M9 9v.01"/>
+                            <path d="M9 12v.01"/>
+                            <path d="M9 15v.01"/>
+                        </svg>
+                    </div>
+                    <h3>REAL ESTATE</h3>
+                </div>
+
+                <div class="industry-card" data-industry="TRAVEL & HOSPITALITY">
+                    <div class="industry-icon travel">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polygon points="16.24,7.76 14.12,14.12 7.76,16.24 9.88,9.88"/>
+                        </svg>
+                    </div>
+                    <h3>TRAVEL & HOSPITALITY</h3>
+                </div>
+
+                <div class="industry-card" data-industry="FOOD & RESTAURANT">
+                    <div class="industry-icon food">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+                            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+                            <line x1="6" y1="1" x2="6" y2="4"/>
+                            <line x1="10" y1="1" x2="10" y2="4"/>
+                            <line x1="14" y1="1" x2="14" y2="4"/>
+                        </svg>
+                    </div>
+                    <h3>FOOD & RESTAURANT</h3>
+                </div>
+
+                <div class="industry-card" data-industry="ON-DEMAND SOLUTIONS">
+                    <div class="industry-icon ondemand">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                            <polygon points="10,7 14,10 10,13"/>
+                        </svg>
+                    </div>
+                    <h3>ON-DEMAND SOLUTIONS</h3>
+                </div>
+
+                <div class="industry-card" data-industry="GAMING">
+                    <div class="industry-icon gaming">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="6" y1="2" x2="6" y2="6"/>
+                            <line x1="4" y1="4" x2="8" y2="4"/>
+                            <line x1="15" y1="15" x2="19" y2="19"/>
+                            <line x1="15" y1="19" x2="19" y2="15"/>
+                            <rect x="5" y="8" width="14" height="8" rx="2"/>
+                        </svg>
+                    </div>
+                    <h3>GAMING</h3>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Popup Modal -->
+    <div id="industryModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Industry Inquiry</h2>
+                <span class="close-btn" id="closeModal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="industryForm">
+                    <div class="form-group">
+                        <label for="industryName">Industry:</label>
+                        <input type="text" id="industryName" name="industry" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="userName">Name: <span class="required">*</span></label>
+                        <input type="text" id="userName" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userPhone">Phone Number: <span class="required">*</span></label>
+                        <input type="tel" id="userPhone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userEmail">Email ID: <span class="required">*</span></label>
+                        <input type="email" id="userEmail" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userMessage">Message:</label>
+                        <textarea id="userMessage" name="message" rows="4" placeholder="Tell us about your project requirements..."></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="submit-btn">Submit Inquiry</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content confirmation-modal">
+            <div class="modal-header">
+                <h2>Confirm Submission</h2>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to submit this inquiry?</p>
+                <div class="confirmation-actions">
+                    <button id="confirmYes" class="confirm-btn yes-btn">Yes</button>
+                    <button id="confirmNo" class="confirm-btn no-btn">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content success-modal">
+            <div class="modal-header">
+                <h2>Success!</h2>
+                <span class="close-btn" id="closeSuccess">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="success-icon">✓</div>
+                <p>Your inquiry has been submitted successfully!</p>
+                <p>We will get back to you soon.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        const industryCards = document.querySelectorAll('.industry-card');
+        const modal = document.getElementById('industryModal');
+        const confirmationModal = document.getElementById('confirmationModal');
+        const successModal = document.getElementById('successModal');
+        const closeModal = document.getElementById('closeModal');
+        const closeSuccess = document.getElementById('closeSuccess');
+        const industryForm = document.getElementById('industryForm');
+        const modalTitle = document.getElementById('modalTitle');
+        const industryNameInput = document.getElementById('industryName');
+        const confirmYes = document.getElementById('confirmYes');
+        const confirmNo = document.getElementById('confirmNo');
+
+        // Form data storage
+        let currentFormData = {};
+        let currentIndustry = '';
+
+        // Add click event listeners to industry cards
+        industryCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const industry = this.getAttribute('data-industry');
+                openModal(industry);
+            });
+        });
+
+        // Open modal function
+        function openModal(industry) {
+            currentIndustry = industry;
+            modalTitle.textContent = `Inquiry for ${industry}`;
+            industryNameInput.value = industry;
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+            
+            // Reset form
+            industryForm.reset();
+            industryNameInput.value = industry;
+        }
+
+        // Close modal function
+        function closeModalFunction() {
+            modal.classList.remove('show');
+            confirmationModal.classList.remove('show');
+            successModal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+            
+            // Reset form data
+            currentFormData = {};
+            currentIndustry = '';
+        }
+
+        // Event listeners for close buttons
+        closeModal.addEventListener('click', closeModalFunction);
+        closeSuccess.addEventListener('click', closeModalFunction);
+
+        // Close modal when clicking outside
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModalFunction();
+            }
+        });
+
+        confirmationModal.addEventListener('click', function(e) {
+            if (e.target === confirmationModal) {
+                confirmationModal.classList.remove('show');
+            }
+        });
+
+        successModal.addEventListener('click', function(e) {
+            if (e.target === successModal) {
+                closeModalFunction();
+            }
+        });
+
+        // Form submission
+        industryForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate form
+            const formData = new FormData(this);
+            const name = formData.get('name').trim();
+            const phone = formData.get('phone').trim();
+            const email = formData.get('email').trim();
+            const message = formData.get('message').trim();
+            
+            // Basic validation
+            if (!name || !phone || !email) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+            
+            // Phone validation (basic)
+            const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+            if (!phoneRegex.test(phone.replace(/[\s\-$$$$]/g, ''))) {
+                alert('Please enter a valid phone number.');
+                return;
+            }
+            
+            // Store form data
+            currentFormData = {
+                industry: currentIndustry,
+                name: name,
+                phone: phone,
+                email: email,
+                message: message,
+                timestamp: new Date().toISOString()
+            };
+            
+            // Show confirmation modal
+            modal.classList.remove('show');
+            confirmationModal.classList.add('show');
+        });
+
+        // Confirmation handlers
+        confirmYes.addEventListener('click', function() {
+            // Simulate form submission (local data transfer)
+            submitFormData();
+            
+            // Hide confirmation modal and show success modal
+            confirmationModal.classList.remove('show');
+            successModal.classList.add('show');
+            
+            // Auto close success modal after 3 seconds
+            setTimeout(() => {
+                closeModalFunction();
+            }, 3000);
+        });
+
+        confirmNo.addEventListener('click', function() {
+            // Go back to the form
+            confirmationModal.classList.remove('show');
+            modal.classList.add('show');
+        });
+
+        // Simulate form submission (local data transfer)
+        function submitFormData() {
+            // Store in localStorage for demonstration
+            let submissions = JSON.parse(localStorage.getItem('industryInquiries') || '[]');
+            submissions.push(currentFormData);
+            localStorage.setItem('industryInquiries', JSON.stringify(submissions));
+            
+            // Log to console for demonstration
+            console.log('Form submitted successfully!');
+            console.log('Submission data:', currentFormData);
+            console.log('All submissions:', submissions);
+            
+            // You can replace this with actual form submission logic
+            // For example: send to server, email service, etc.
+        }
+
+        // Keyboard event handlers
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                if (successModal.classList.contains('show')) {
+                    closeModalFunction();
+                } else if (confirmationModal.classList.contains('show')) {
+                    confirmationModal.classList.remove('show');
+                    modal.classList.add('show');
+                } else if (modal.classList.contains('show')) {
+                    closeModalFunction();
+                }
+            }
+        });
+
+        // Utility function to get all stored submissions (for debugging)
+        function getAllSubmissions() {
+            return JSON.parse(localStorage.getItem('industryInquiries') || '[]');
+        }
+
+        // Utility function to clear all submissions (for debugging)
+        function clearAllSubmissions() {
+            localStorage.removeItem('industryInquiries');
+            console.log('All submissions cleared.');
+        }
+
+        // Make utility functions available globally for debugging
+        window.getAllSubmissions = getAllSubmissions;
+        window.clearAllSubmissions = clearAllSubmissions;
+    </script>
+    <script src="main.js"></script>
+    <footer class="main-footer">
+        <div class="container">
+            <!-- Main Footer Content -->
+            <div class="footer-content">
+                <!-- Company Info Section -->
+                <div class="footer-section company-section">
+                    <div class="footer-logo">
+                        <img src="rtpllogo.png" alt="Reputable Technologies">
+                    </div>
+                    <p class="company-description">
+                        Leading provider of innovative software solutions, empowering businesses to thrive in the digital era with cutting-edge technology and exceptional service.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                <rect x="2" y="9" width="4" height="12"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="YouTube">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+                                <polygon points="9.75,15.02 15.5,11.75 9.75,8.48"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links Section -->
+                <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="case_studies.html">Case Studies</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services Section -->
+                <div class="footer-section">
+                    <h3 class="footer-title">Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="solutions.html">Software Development</a></li>
+                        <li><a href="solutions.html">Web Development</a></li>
+                        <li><a href="solutions.html">Mobile Applications</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info Section -->
+                <div class="footer-section contact-section">
+                    <h3 class="footer-title">Get in Touch</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                            </div>
+                            <div class="contact-text">
+                                <p>Unit No 101, 1st Floor, Shrey Building,<br>
+                                Chanakya Chowk, Virat Nagar, Virar West,<br>
+                                Mumbai, Maharashtra - 401303, INDIA</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                </svg>
+                            </div>
+                            <div class="contact-text">
+                                <p>+91 98672 64906<br>+91 98706 26205</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                            </div>
+                            <div class="contact-text">
+                                <p><a href="mailto:info@reputabletechnologies.com">info@reputabletechnologies.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Newsletter Section -->
+                <div class="footer-section newsletter-section">
+                    <h3 class="footer-title">Certifications</h3>
+                    <div class="certifications">
+                        <div class="cert-badges">
+                            <div class="cert-badge">ISO 9001:2015</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="copyright">
+                        <p>&copy; 2024 Reputable Technologies Pvt. Ltd. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

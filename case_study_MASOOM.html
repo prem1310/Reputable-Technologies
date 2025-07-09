@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MASOOM FOUNDATION Case Studies</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 100px 0 80px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  text-align: center;
+}
+
+.main-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero-subtitle {
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-weight: 300;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.hero-description {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-description p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  opacity: 0.9;
+  line-height: 1.7;
+}
+
+/* Overview Section */
+.overview-section {
+  padding: 80px 0;
+  background: #f8fafc;
+}
+
+.content-card {
+  background: white;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 2rem;
+  position: relative;
+  text-align: center;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #10b981, #059669);
+  border-radius: 2px;
+}
+
+.section-description {
+  font-size: 1.1rem;
+  color: #64748b;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Challenges Section */
+.challenges-section {
+  padding: 80px 0;
+  background: white;
+}
+
+.challenges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.challenge-card {
+  background: #f8fafc;
+  padding: 2.5rem;
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #e2e8f0;
+  position: relative;
+  overflow: hidden;
+}
+
+.challenge-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ef4444, #f97316);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.challenge-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  background: white;
+}
+
+.challenge-card:hover::before {
+  transform: scaleX(1);
+}
+
+.challenge-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.challenge-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.challenge-card p {
+  color: #64748b;
+  line-height: 1.7;
+}
+
+/* Solutions Section */
+.solutions-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.solution-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.solution-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #10b981, #059669);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.solution-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.solution-card:hover::before {
+  transform: scaleX(1);
+}
+
+.solution-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.solution-icon {
+  font-size: 2.5rem;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #10b981, #059669);
+  border-radius: 16px;
+  flex-shrink: 0;
+}
+
+.solution-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.solution-card p {
+  color: #64748b;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+/* Results Section */
+.results-section {
+  padding: 80px 0;
+  background: white;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.result-item {
+  text-align: center;
+  padding: 2rem;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.result-item:hover {
+  background: #f8fafc;
+  transform: translateY(-4px);
+}
+
+.result-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.result-item h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.result-item p {
+  color: #64748b;
+  line-height: 1.7;
+}
+
+/* Conclusion Section */
+.conclusion-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+}
+
+.conclusion-card {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.conclusion-section .section-title {
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.conclusion-section .section-title::after {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.conclusion-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  opacity: 0.95;
+}
+
+/* Content Styling */
+.content-container {
+  position: relative;
+  min-height: 500px;
+}
+
+.tab-content {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tab-content.active {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+  align-items: center;
+  gap: 4rem;
+  background: white;
+  padding: 3rem;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.content-left {
+  flex: 1;
+  max-width: 500px;
+}
+
+.content-left h2 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.light-text {
+  color: #64748b;
+  font-weight: 400;
+}
+
+.content-left p {
+  font-size: 1.1rem;
+  color: #64748b;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.feature-icon {
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.feature-item span {
+  color: #475569;
+  font-weight: 500;
+}
+
+.content-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-right img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #64748b;
+  margin-bottom: 4rem;
+}
+
+/* Case Studies Section */
+.case-studies {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.case-studies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.case-study-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.case-study-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.case-study-image {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.case-study-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.case-study-card:hover .case-study-image img {
+  transform: scale(1.05);
+}
+
+.case-study-content {
+  padding: 2rem;
+}
+
+.case-study-card h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.case-study-card p {
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.case-study-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #10b981;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.case-study-link:hover {
+  color: #059669;
+  gap: 0.75rem;
+}
+
+.case-study-link::after {
+  content: "→";
+  transition: transform 0.3s ease;
+}
+
+.case-study-link:hover::after {
+  transform: translateX(4px);
+}
+
+/* Happy Customers Section */
+.happy-customers {
+  padding: 80px 0;
+  background: white;
+  overflow: hidden;
+}
+
+.customers-slider {
+  margin-top: 3rem;
+}
+
+.scroll-row {
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-radius: 16px;
+  padding: 1rem 0;
+}
+
+.image-track {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  gap: 2rem;
+  padding: 0 2rem;
+  width: max-content;
+  will-change: transform;
+}
+
+.image-track img {
+  width: 150px;
+  height: 110px;
+  object-fit: contain;
+  flex-shrink: 0;
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  filter: grayscale(100%) opacity(0.7);
+}
+
+.image-track img:hover {
+  filter: grayscale(0%) opacity(1);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Animations */
+.scroll-left .image-track {
+  animation: scrollLeft 30s linear infinite;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.scroll-right .image-track {
+  animation: scrollRight 30s linear infinite;
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .challenges-grid,
+  .solutions-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .results-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .tab-content.active {
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .case-studies-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section,
+  .overview-section,
+  .challenges-section,
+  .solutions-section,
+  .results-section,
+  .conclusion-section {
+    padding: 60px 0;
+  }
+
+  .content-card {
+    padding: 2rem;
+  }
+
+  .challenge-card,
+  .solution-card {
+    padding: 2rem;
+  }
+
+  .solution-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .challenges-grid,
+  .solutions-grid,
+  .results-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .software-solutions,
+  .our-products,
+  .case-studies {
+    padding: 60px 0;
+  }
+
+  .tab-content.active {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+
+  .content-left {
+    max-width: none;
+  }
+
+  .content-left p {
+    text-align: left;
+  }
+
+  .case-studies-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .image-track {
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .image-track img {
+    width: 100px;
+    height: 70px;
+  }
+
+  .scroll-row {
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .hero-section {
+    padding: 80px 0 60px;
+  }
+
+  .content-card,
+  .challenge-card,
+  .solution-card {
+    padding: 1.5rem;
+  }
+
+  .result-item {
+    padding: 1.5rem;
+  }
+
+  .solution-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
+  }
+
+  .tab-content.active {
+    padding: 1.5rem 1rem;
+  }
+
+  .case-study-content {
+    padding: 1.5rem;
+  }
+
+  .image-track img {
+    width: 80px;
+    height: 60px;
+  }
+
+  .scroll-row {
+    height: 90px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .scroll-left .image-track,
+  .scroll-right .image-track {
+    animation-duration: 60s;
+  }
+}
+
+/* Focus states for accessibility */
+.challenge-card:focus,
+.solution-card:focus,
+.result-item:focus {
+  outline: 2px solid #10b981;
+  outline-offset: 2px;
+}
+
+.case-study-link:focus {
+  outline: 2px solid #10b981;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Print styles */
+@media print {
+  .hero-section,
+  .conclusion-section {
+    background: white !important;
+    color: black !important;
+  }
+
+  .section-title::after {
+    background: black !important;
+  }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-brand">
+            <img src="rtpllogo.png" alt="Reputable Technologies Logo" class="logo">
+            <span class="company-name">Reputable Technologies Pvt Ltd</span>
+        </div>
+        <nav>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li class="has-submenu">
+                <a href="#company">Company <span class="dropdown-arrow">▼</span></a>
+                <ul class="submenu company-submenu">
+                    <li>
+                    <a href="about.html">
+                        <div>
+                        <strong>About Us</strong><br>
+                        <span>Our Story & Mission</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#team.html">
+                        <div>
+                        <strong>Our Team</strong><br>
+                        <span>Meet Our Experts</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#careers.html">
+                        <div>
+                        <strong>Careers</strong><br>
+                        <span>Join Our Team</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#news-events.html">
+                        <div>
+                        <strong>News & Events</strong><br>
+                        <span>Latest Updates</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#awards.html">
+                        <div>
+                        <strong>Awards</strong><br>
+                        <span>Recognition & Achievements</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#certifications.html">
+                        <div>
+                        <strong>Certifications</strong><br>
+                        <span>Quality Standards</span>
+                        </div>
+                    </a>
+                    </li>
+                </ul>
+                </li>
+                <li class="has-submenu">
+                <a href="#products">Products <span class="dropdown-arrow">▼</span></a>
+                <ul class="submenu products-submenu">
+                    <li>
+                    <a href="ezattendancepro.html">
+                        <div>
+                        <strong>EzAttendancePro</strong><br>
+                        <span>Attendance & Leave Management System</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="ezpayrollpro.html">
+                        <div>
+                        <strong>EzPayrollPro</strong><br>
+                        <span>Payroll Management System</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="ezaccesspro.html">
+                        <div>
+                        <strong>EzAccessPro</strong><br>
+                        <span>Access Management System</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="ezvms.html">
+                        <div>
+                        <strong>EzVMS</strong><br>
+                        <span>Visitor Management System</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="ezcrm.html">
+                        <div>
+                        <strong>EzCRM</strong><br>
+                        <span>Customer Relationship Management System</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="ezcanteen.html">
+                        <div>
+                        <strong>EzCanteen</strong><br>
+                        <span>Canteen Management System</span>
+                        </div>
+                    </a>
+                    </li>
+                </ul>
+                </li>
+                <li><a href="solutions.html">Solutions</a></li>
+                <li><a href="case_studies.html">Case Studies</a></li>
+                <li><a href="clientele.html">Clientele</a></li>
+                <li><a href="partner.html">Become A Partner</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-MASOOM">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <h1 class="main-title">MASOOM FOUNDATION</h1>
+                <p class="hero-subtitle">Streamlining Operations and Centralizing Data with Customized ERP Software</p>
+                <div class="hero-description">
+                    <p>MASOOM FOUNDATION, dedicated to providing education and support to underprivileged children, transformed their manual processes into efficient digital operations through innovative ERP solutions.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Overview Section -->
+        <section class="overview-section">
+            <div class="container">
+                <div class="content-card">
+                    <h2 class="section-title">Project Overview</h2>
+                    <p class="section-description">
+                        MASOOM FOUNDATION faced challenges in managing student databases and academic results. The organization heavily relied on manual paperwork, which made it difficult to search for specific information and track transactions. Recognizing the need for a centralized system to streamline key processes and data management, the top chairperson of MASOOM NGO sought a solution that would integrate various functionalities into one platform.
+                    </p>
+                    <p class="section-description">
+                        <strong>Reputable Technologies Private Limited</strong> provided MASOOM NGO with a customized web-based ERP software solution to address their requirements.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Challenges Section -->
+        <section class="challenges-section">
+            <div class="container">
+                <h2 class="section-title">Challenges</h2>
+                <div class="challenges-grid">
+                    <div class="challenge-card">
+                        <div class="challenge-icon">📄</div>
+                        <h3>Manual Data Management</h3>
+                        <p>Maintaining student databases and academic results through manual paper-based systems created a burden of paperwork, making it difficult to access and search for specific information.</p>
+                    </div>
+                    <div class="challenge-card">
+                        <div class="challenge-icon">🔍</div>
+                        <h3>Lack of Centralization</h3>
+                        <p>MASOOM FOUNDATION lacked a centralized platform to store and access data, which hindered their ability to have a bird's eye view of key processes and analyze data efficiently.</p>
+                    </div>
+                    <div class="challenge-card">
+                        <div class="challenge-icon">💸</div>
+                        <h3>Cost of Stationary</h3>
+                        <p>The reliance on paper stationery for record-keeping resulted in significant costs for MASOOM FOUNDATION.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solutions Section -->
+        <section class="solutions-section">
+            <div class="container">
+                <h2 class="section-title">Solutions Provided</h2>
+                <div class="solutions-grid">
+                    <div class="solution-card">
+                        <div class="solution-header">
+                            <div class="solution-icon">🖥️</div>
+                            <h3>Customized ERP Software</h3>
+                        </div>
+                        <p>The ERP software provided a centralized platform to store and manage student databases and academic results. It offered multiple user roles, ranging from the CEO dashboard to data entry operators, ensuring secure access to relevant information for each user.</p>
+                    </div>
+                    
+                    <div class="solution-card">
+                        <div class="solution-header">
+                            <div class="solution-icon">🗄️</div>
+                            <h3>Data Repositories</h3>
+                        </div>
+                        <p>The ERP software acted as a centralized repository for all data, bringing together key processes under one platform. This eliminated the need for manual paperwork and enabled easy searching and retrieval of information.</p>
+                    </div>
+                    
+                    <div class="solution-card">
+                        <div class="solution-header">
+                            <div class="solution-icon">💰</div>
+                            <h3>Cost Savings</h3>
+                        </div>
+                        <p>By implementing the ERP software, MASOOM NGO experienced significant cost savings, estimated to be around 80% of their previous expenditure on paper stationery. The digital system eliminated the need for physical record-keeping, reducing printing and storage costs.</p>
+                    </div>
+                    
+                    <div class="solution-card">
+                        <div class="solution-header">
+                            <div class="solution-icon">📊</div>
+                            <h3>CEO Dashboard</h3>
+                        </div>
+                        <p>The ERP software included a comprehensive CEO dashboard that provided a bird's eye view of key metrics and performance indicators. The dashboard allowed the top chairperson to access annual targets, compare achievements against targets, and analyze academic results. These features empowered informed decision-making and facilitated effective monitoring of organizational goals.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="results-section">
+            <div class="container">
+                <h2 class="section-title">Results and Benefits</h2>
+                <div class="results-grid">
+                    <div class="result-item">
+                        <div class="result-icon">⚡</div>
+                        <h3>Enhanced Efficiency</h3>
+                        <p>The customized ERP software streamlined data management processes, reducing the time and effort required to maintain student databases and academic results. Automation and digital storage improved efficiency and accuracy while eliminating manual errors.</p>
+                    </div>
+                    
+                    <div class="result-item">
+                        <div class="result-icon">🎯</div>
+                        <h3>Centralized Data Access</h3>
+                        <p>MASOOM NGO achieved a centralized platform where data could be easily accessed, searched, and retrieved. This centralized approach ensured data integrity, improved collaboration, and facilitated seamless information sharing among authorized users.</p>
+                    </div>
+                    
+                    <div class="result-item">
+                        <div class="result-icon">💵</div>
+                        <h3>Significant Cost Savings</h3>
+                        <p>The transition from manual paper-based systems to the ERP software resulted in significant cost savings for MASOOM NGO. By eliminating the need for paper stationery, printing, and storage, the organization saved valuable resources that could be redirected toward their core mission.</p>
+                    </div>
+                    
+                    <div class="result-item">
+                        <div class="result-icon">📈</div>
+                        <h3>Comprehensive Reporting</h3>
+                        <p>The CEO dashboard provided a holistic view of key metrics, allowing the top chairperson to monitor progress, analyze results, and make data-driven decisions. The analysis of academic results and the comparison between annual targets and achievements empowered MASOOM NGO to take proactive measures for improvement.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion Section -->
+        <section class="conclusion-section">
+            <div class="container">
+                <div class="conclusion-card">
+                    <h2 class="section-title">Conclusion</h2>
+                    <p class="conclusion-text">
+                        MASOOM NGO successfully transformed its manual and paper-based processes into streamlined and efficient operations through the implementation of a customized ERP software solution. <strong>Reputable Technologies Private Limited's</strong> web-based software provided MASOOM NGO with a centralized platform for managing student databases, academic results, and financial records.
+                    </p>
+                    <p class="conclusion-text">
+                        The integrated CEO dashboard and analytics enhanced decision-making, while the reduction in paper-based stationery resulted in significant cost savings. MASOOM NGO benefited from increased efficiency, enhanced data accessibility, and comprehensive insights, enabling them to focus on their core mission of providing education and support to underprivileged children.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Case Studies Section -->
+    <section class="case-studies" id="case-studies">
+        <div class="container">
+            <h2 class="section-title">Case Studies</h2>
+            <p class="section-subtitle">Real-world success stories showcasing our innovative solutions</p>
+            
+            <div class="case-studies-grid">
+                <div class="case-study-card">
+                    <div class="case-study-image">
+                        <img src="soft_solutions/motilal.jpg" alt="Motilal Oswal Financial Services Limited">
+                    </div>
+                    <div class="case-study-content">
+                        <h3>Motilal Oswal Financial Services Limited</h3>
+                        <a href="case_study_MOFSL.html" class="case-study-link">Read Full Case Study</a>
+                    </div>
+                </div>
+
+                <div class="case-study-card">
+                    <div class="case-study-image">
+                        <img src="soft_solutions/masoom.jpg" alt="MASOOM FOUNDATION">
+                    </div>
+                    <div class="case-study-content">
+                        <h3>MASOOM FOUNDATION</h3>
+                        <a href="case_study_MASOOM.html" class="case-study-link">Read Full Case Study</a>
+                    </div>
+                </div>
+
+                <div class="case-study-card">
+                    <div class="case-study-image">
+                        <img src="soft_solutions/drdo.jpg" alt="DRDO's Research Center Imarat">
+                    </div>
+                    <div class="case-study-content">
+                        <h3>DRDO's Research Center Imarat</h3>
+                        <a href="case_study_DRDO.html" class="case-study-link">Read Full Case Study</a>
+                    </div>
+                </div>
+
+                <div class="case-study-card">
+                    <div class="case-study-image">
+                        <img src="soft_solutions/hsil.jpg" alt="HSIL-Hindware (Rajasthan & Hyderabad)">
+                    </div>
+                    <div class="case-study-content">
+                        <h3>HSIL-Hindware (Rajasthan & Hyderabad)</h3>
+                        <a href="#case_study_HSIL.html" class="case-study-link">Read Full Case Study</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="happy-customers">
+        <div class="container">
+            <h2 class="section-title">Happy Customers</h2>
+            <p class="section-subtitle">Trusted by leading companies worldwide</p>
+        </div>
+        
+        <div class="customers-slider">
+            <div class="scroll-row scroll-left">
+                <div class="image-track">
+                <img src="customers_image\logo_1.png" alt="Image 1">
+                <img src="customers_image\logo_2.png" alt="Image 2">
+                <img src="customers_image\logo_3.png" alt="Image 3">
+                <img src="customers_image\logo_4.png" alt="Image 4">
+                <img src="customers_image\logo_5.png" alt="Image 5">
+                <img src="customers_image\logo_6.png" alt="Image 6">
+                <img src="customers_image\logo_7.png" alt="Image 7">
+                <img src="customers_image\logo_8.png" alt="Image 8">
+                <img src="customers_image\logo_9.png" alt="Image 9">
+                <img src="customers_image\logo_10.png" alt="Image 10">
+                <img src="customers_image\logo_11.png" alt="Image 11">
+                <img src="customers_image\logo_12.png" alt="Image 12">
+                <img src="customers_image\logo_13.png" alt="Image 13">
+                <img src="customers_image\logo_14.png" alt="Image 14">
+                <img src="customers_image\logo_15.png" alt="Image 15">
+                <img src="customers_image\logo_16.png" alt="Image 16">
+                <img src="customers_image\logo_17.png" alt="Image 17">
+                <img src="customers_image\logo_18.png" alt="Image 18">
+                <img src="customers_image\logo_19.png" alt="Image 19">
+                <img src="customers_image\logo_20.png" alt="Image 20">
+                <img src="customers_image\logo_21.png" alt="Image 21">
+                <img src="customers_image\logo_1.png" alt="Image 1">
+                <img src="customers_image\logo_2.png" alt="Image 2">
+                <img src="customers_image\logo_3.png" alt="Image 3">
+                <img src="customers_image\logo_4.png" alt="Image 4">
+                <img src="customers_image\logo_5.png" alt="Image 5">
+                <img src="customers_image\logo_6.png" alt="Image 6">
+                <img src="customers_image\logo_7.png" alt="Image 7">
+                <img src="customers_image\logo_8.png" alt="Image 8">
+                <img src="customers_image\logo_9.png" alt="Image 9">
+                <img src="customers_image\logo_10.png" alt="Image 10">
+                <img src="customers_image\logo_11.png" alt="Image 11">
+                <img src="customers_image\logo_12.png" alt="Image 12">
+                <img src="customers_image\logo_13.png" alt="Image 13">
+                <img src="customers_image\logo_14.png" alt="Image 14">
+                <img src="customers_image\logo_15.png" alt="Image 15">
+                <img src="customers_image\logo_16.png" alt="Image 16">
+                <img src="customers_image\logo_17.png" alt="Image 17">
+                <img src="customers_image\logo_18.png" alt="Image 18">
+                <img src="customers_image\logo_19.png" alt="Image 19">
+                <img src="customers_image\logo_20.png" alt="Image 20">
+                <img src="customers_image\logo_21.png" alt="Image 21">
+            </div>
+        </div>
+        <div class="scroll-row scroll-right">
+            <div class="image-track">
+                <img src="customers_image\logo_21.png" alt="Image 21">
+                <img src="customers_image\logo_20.png" alt="Image 20">
+                <img src="customers_image\logo_19.png" alt="Image 19">
+                <img src="customers_image\logo_18.png" alt="Image 18">
+                <img src="customers_image\logo_17.png" alt="Image 17">
+                <img src="customers_image\logo_16.png" alt="Image 16">
+                <img src="customers_image\logo_15.png" alt="Image 15">
+                <img src="customers_image\logo_14.png" alt="Image 14">
+                <img src="customers_image\logo_13.png" alt="Image 13">
+                <img src="customers_image\logo_12.png" alt="Image 12">
+                <img src="customers_image\logo_11.png" alt="Image 11">
+                <img src="customers_image\logo_10.png" alt="Image 10">
+                <img src="customers_image\logo_9.png" alt="Image 9">
+                <img src="customers_image\logo_8.png" alt="Image 8">
+                <img src="customers_image\logo_7.png" alt="Image 7">
+                <img src="customers_image\logo_6.png" alt="Image 6">
+                <img src="customers_image\logo_5.png" alt="Image 5">
+                <img src="customers_image\logo_4.png" alt="Image 4">
+                <img src="customers_image\logo_3.png" alt="Image 3">
+                <img src="customers_image\logo_2.png" alt="Image 2">
+                <img src="customers_image\logo_1.png" alt="Image 1">
+                <img src="customers_image\logo_21.png" alt="Image 21">
+                <img src="customers_image\logo_20.png" alt="Image 20">
+                <img src="customers_image\logo_19.png" alt="Image 19">
+                <img src="customers_image\logo_18.png" alt="Image 18">
+                <img src="customers_image\logo_17.png" alt="Image 17">
+                <img src="customers_image\logo_16.png" alt="Image 16">
+                <img src="customers_image\logo_15.png" alt="Image 15">
+                <img src="customers_image\logo_14.png" alt="Image 14">
+                <img src="customers_image\logo_13.png" alt="Image 13">
+                <img src="customers_image\logo_12.png" alt="Image 12">
+                <img src="customers_image\logo_11.png" alt="Image 11">
+                <img src="customers_image\logo_10.png" alt="Image 10">
+                <img src="customers_image\logo_9.png" alt="Image 9">
+                <img src="customers_image\logo_8.png" alt="Image 8">
+                <img src="customers_image\logo_7.png" alt="Image 7">
+                <img src="customers_image\logo_6.png" alt="Image 6">
+                <img src="customers_image\logo_5.png" alt="Image 5">
+                <img src="customers_image\logo_4.png" alt="Image 4">
+                <img src="customers_image\logo_3.png" alt="Image 3">
+                <img src="customers_image\logo_2.png" alt="Image 2">
+                <img src="customers_image\logo_1.png" alt="Image 1">
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            // Function to switch tabs with smooth animation
+            function switchTab(targetTab) {
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(button => button.classList.remove('active'));
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Add active class to clicked button
+                const activeButton = document.querySelector(`[data-tab="${targetTab}"]`);
+                activeButton.classList.add('active');
+                
+                // Show corresponding content with staggered animation
+                setTimeout(() => {
+                    const activeContent = document.getElementById(targetTab);
+                    activeContent.classList.add('active');
+                }, 150);
+            }
+            
+            // Add click event listeners to tab buttons
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetTab = this.getAttribute('data-tab');
+                    switchTab(targetTab);
+                });
+            });
+            
+            // Keyboard navigation support
+            tabButtons.forEach((button, index) => {
+                button.addEventListener('keydown', function(e) {
+                    let newIndex;
+                    
+                    switch(e.key) {
+                        case 'ArrowLeft':
+                            newIndex = index > 0 ? index - 1 : tabButtons.length - 1;
+                            break;
+                        case 'ArrowRight':
+                            newIndex = index < tabButtons.length - 1 ? index + 1 : 0;
+                            break;
+                        case 'Home':
+                            newIndex = 0;
+                            break;
+                        case 'End':
+                            newIndex = tabButtons.length - 1;
+                            break;
+                        default:
+                            return;
+                    }
+                    
+                    e.preventDefault();
+                    tabButtons[newIndex].focus();
+                    const targetTab = tabButtons[newIndex].getAttribute('data-tab');
+                    switchTab(targetTab);
+                });
+            });
+
+            // Animate cards on scroll
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -100px 0px',
+                threshold: 0.1
+            };
+
+            const cardObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe product and case study cards
+            const cards = document.querySelectorAll('.product-card, .case-study-card');
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                cardObserver.observe(card);
+            });
+            
+            // Pause animations when user prefers reduced motion
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                const scrollTracks = document.querySelectorAll('.image-track');
+                scrollTracks.forEach(track => {
+                    track.style.animationDuration = '60s';
+                });
+            }
+            
+            // Pause scrolling animation on hover for better UX
+            const scrollRows = document.querySelectorAll('.scroll-row');
+            scrollRows.forEach(row => {
+                const track = row.querySelector('.image-track');
+                
+                row.addEventListener('mouseenter', function() {
+                    track.style.animationPlayState = 'paused';
+                });
+                
+                row.addEventListener('mouseleave', function() {
+                    track.style.animationPlayState = 'running';
+                });
+            });
+            
+            // Intersection Observer for performance optimization
+            const scrollObserverOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            
+            const scrollObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const track = entry.target.querySelector('.image-track');
+                    if (entry.isIntersecting) {
+                        track.style.animationPlayState = 'running';
+                    } else {
+                        track.style.animationPlayState = 'paused';
+                    }
+                });
+            }, scrollObserverOptions);
+            
+            scrollRows.forEach(row => {
+                scrollObserver.observe(row);
+            });
+            
+            // Handle visibility change to pause/resume animations
+            document.addEventListener('visibilitychange', function() {
+                const tracks = document.querySelectorAll('.image-track');
+                if (document.visibilityState === 'visible') {
+                    tracks.forEach(track => {
+                        track.style.animationPlayState = 'running';
+                    });
+                } else {
+                    tracks.forEach(track => {
+                        track.style.animationPlayState = 'paused';
+                    });
+                }
+            });
+        });
+    </script>
+    <footer class="main-footer">
+        <div class="container">
+            <!-- Main Footer Content -->
+            <div class="footer-content">
+                <!-- Company Info Section -->
+                <div class="footer-section company-section">
+                    <div class="footer-logo">
+                        <img src="rtpllogo.png" alt="Reputable Technologies">
+                    </div>
+                    <p class="company-description">
+                        Leading provider of innovative software solutions, empowering businesses to thrive in the digital era with cutting-edge technology and exceptional service.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                <rect x="2" y="9" width="4" height="12"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="YouTube">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+                                <polygon points="9.75,15.02 15.5,11.75 9.75,8.48"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links Section -->
+                <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="case_studies.html">Case Studies</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services Section -->
+                <div class="footer-section">
+                    <h3 class="footer-title">Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="solutions.html">Software Development</a></li>
+                        <li><a href="solutions.html">Web Development</a></li>
+                        <li><a href="solutions.html">Mobile Applications</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info Section -->
+                <div class="footer-section contact-section">
+                    <h3 class="footer-title">Get in Touch</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                            </div>
+                            <div class="contact-text">
+                                <p>Unit No 101, 1st Floor, Shrey Building,<br>
+                                Chanakya Chowk, Virat Nagar, Virar West,<br>
+                                Mumbai, Maharashtra - 401303, INDIA</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                </svg>
+                            </div>
+                            <div class="contact-text">
+                                <p>+91 98672 64906<br>+91 98706 26205</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                            </div>
+                            <div class="contact-text">
+                                <p><a href="mailto:info@reputabletechnologies.com">info@reputabletechnologies.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Newsletter Section -->
+                <div class="footer-section newsletter-section">
+                    <h3 class="footer-title">Certifications</h3>
+                    <div class="certifications">
+                        <div class="cert-badges">
+                            <div class="cert-badge">ISO 9001:2015</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="copyright">
+                        <p>&copy; 2024 Reputable Technologies Pvt. Ltd. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

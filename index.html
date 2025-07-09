@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reputable Technologies Pvt Ltd</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .software-solutions {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        .main-title {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        .main-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 2px;
+        }
+        /* Tabs Styling */
+        .tabs-container {
+            margin-bottom: 4rem;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: clamp(2rem, 6vw, 4rem);
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        .tab-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            min-width: 200px;
+            border-radius: 16px;
+        }
+        .tab-button:hover {
+            background-color: rgba(59, 130, 246, 0.05);
+            transform: translateY(-2px);
+        }
+        .tab-button::after {
+            content: '';
+            position: absolute;
+            bottom: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+        .tab-button.active::after {
+            width: 60%;
+        }
+        .tab-icon {
+            color: #64748b;
+            transition: all 0.3s ease;
+        }
+        .tab-button.active .tab-icon {
+            color: #3b82f6;
+        }
+        .tab-button:hover .tab-icon {
+            transform: translateY(-4px);
+            color: #3b82f6;
+        }
+        .tab-button span {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #475569;
+            text-align: center;
+            transition: color 0.3s ease;
+            line-height: 1.4;
+        }
+        .tab-button.active span {
+            color: #3b82f6;
+        }
+        /* Content Styling */
+        .content-container {
+            position: relative;
+            min-height: 500px;
+        }
+        .tab-content {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .tab-content.active {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+            align-items: center;
+            gap: 4rem;
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+        .content-left {
+            flex: 1;
+            max-width: 500px;
+        }
+        .content-left h2 {
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        .light-text {
+            color: #64748b;
+            font-weight: 400;
+        }
+        .content-left p {
+            font-size: 1.1rem;
+            color: #64748b;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+        .features-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        .feature-item span {
+            color: #475569;
+            font-weight: 500;
+        }
+        .content-right {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .content-right img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Our Products Section */
+        .our-products {
+            padding: 80px 0;
+            background: white;
+        }
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 2px;
+        }
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #64748b;
+            margin-bottom: 4rem;
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+        .product-card:hover::before {
+            transform: scaleX(1);
+        }
+        .product-image {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+        .product-image img {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+        }
+        .product-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        .product-card p {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+        .product-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #3b82f6;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+        .product-link:hover {
+            color: #1d4ed8;
+            gap: 0.75rem;
+        }
+        .product-link::after {
+            content: '→';
+            transition: transform 0.3s ease;
+        }
+        .product-link:hover::after {
+            transform: translateX(4px);
+        }
+
+        /* Case Studies Section */
+        .case-studies {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .case-study-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+        .case-study-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        .case-study-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .case-study-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .case-study-card:hover .case-study-image img {
+            transform: scale(1.05);
+        }
+        .case-study-content {
+            padding: 2rem;
+        }
+        .case-study-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        .case-study-card p {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        .case-study-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #3b82f6;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        .case-study-link:hover {
+            color: #1d4ed8;
+            gap: 0.75rem;
+        }
+        .case-study-link::after {
+            content: '→';
+            transition: transform 0.3s ease;
+        }
+        .case-study-link:hover::after {
+            transform: translateX(4px);
+        }
+
+        /* Happy Customers Section */
+        .happy-customers {
+        padding: 6rem 0;
+        background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+        position: relative;
+        overflow: hidden;
+        }
+
+        .happy-customers::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.03) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.03) 0%, transparent 50%);
+        pointer-events: none;
+        }
+
+        .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+        position: relative;
+        z-index: 1;
+        }
+
+        .section-title {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 800;
+        color: #1a202c;
+        margin-bottom: 1rem;
+        letter-spacing: -0.02em;
+        position: relative;
+        }
+
+        .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(90deg, #6366f1, #8b5cf6);
+        border-radius: 2px;
+        }
+
+        .section-subtitle {
+        font-size: clamp(1.1rem, 2vw, 1.3rem);
+        color: #4a5568;
+        max-width: 600px;
+        margin: 0 auto;
+        font-weight: 400;
+        }
+
+        /* Customers Showcase */
+        .customers-showcase {
+        position: relative;
+        z-index: 1;
+        mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+        }
+
+        .logo-row {
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        border-radius: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+        padding: 1.5rem 0;
+        }
+
+        .logo-row:last-child {
+        margin-bottom: 0;
+        }
+
+        .logo-track {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        width: max-content;
+        will-change: transform;
+        }
+
+        .logo-row[data-direction="left"] .logo-track {
+        animation: slideLeft 40s linear infinite;
+        }
+
+        .logo-row[data-direction="right"] .logo-track {
+        animation: slideRight 40s linear infinite;
+        }
+
+        .logo-item {
+        flex-shrink: 0;
+        width: 160px;
+        height: 130px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: white;
+        border-radius: 1.5rem;
+        padding: 1.5rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+        }
+
+        .logo-item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        }
+
+        .logo-item:hover::before {
+        opacity: 1;
+        }
+
+        .logo-item:hover {
+        transform: translateY(-8px) scale(1.05);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        border-color: rgba(99, 102, 241, 0.2);
+        }
+
+        .logo-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        filter: grayscale(100%) opacity(0.7);
+        transition: all 0.4s ease;
+        position: relative;
+        z-index: 1;
+        }
+
+        .logo-item:hover img {
+        filter: grayscale(0%) opacity(1);
+        transform: scale(1.1);
+        }
+
+        /* Animations */
+        @keyframes slideLeft {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+        }
+
+        @keyframes slideRight {
+        0% {
+            transform: translateX(-50%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+        .logo-track {
+            gap: 2.5rem;
+        }
+
+        .logo-item {
+            width: 140px;
+            height: 90px;
+            padding: 1.2rem;
+        }
+        }
+
+        @media (max-width: 768px) {
+        .container {
+            padding: 0 1.5rem;
+        }
+
+        .happy-customers {
+            padding: 4rem 0;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+        }
+
+        .logo-row {
+            margin-bottom: 1.5rem;
+            padding: 1rem 0;
+            border-radius: 1.5rem;
+        }
+
+        .logo-track {
+            gap: 2rem;
+        }
+
+        .logo-item {
+            width: 120px;
+            height: 80px;
+            padding: 1rem;
+            border-radius: 1rem;
+        }
+
+        .logo-item:hover {
+            transform: translateY(-4px) scale(1.02);
+        }
+        }
+
+        @media (max-width: 480px) {
+        .container {
+            padding: 0 1rem;
+        }
+
+        .customers-showcase {
+            mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+        }
+
+        .logo-track {
+            gap: 1.5rem;
+        }
+
+        .logo-item {
+            width: 100px;
+            height: 70px;
+            padding: 0.8rem;
+        }
+
+        .logo-row {
+            padding: 0.8rem 0;
+        }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+        .logo-row[data-direction="left"] .logo-track,
+        .logo-row[data-direction="right"] .logo-track {
+            animation-duration: 80s;
+        }
+
+        .logo-item:hover {
+            transform: none;
+        }
+        }
+
+        /* Focus states for accessibility */
+        .logo-item:focus-within {
+        outline: 2px solid #6366f1;
+        outline-offset: 2px;
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+        .logo-item {
+            border: 2px solid #6366f1;
+        }
+
+        .logo-item img {
+            filter: none;
+        }
+        }
+
+        /* Print styles */
+        @media print {
+        .happy-customers {
+            background: white !important;
+        }
+
+        .logo-row {
+            background: white !important;
+            box-shadow: none !important;
+            border: 1px solid #ccc !important;
+        }
+
+        .logo-track {
+            animation: none !important;
+        }
+        }
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            .scroll-left .image-track,
+            .scroll-right .image-track {
+                animation-duration: 60s;
+            }
+            .tab-button:hover .tab-icon {
+                transform: none;
+            }
+        }
+        /* Focus states for accessibility */
+        .tab-button:focus {
+            outline: 2px solid #3b82f6;
+            outline-offset: 2px;
+        }
+        .tab-button:focus:not(:focus-visible) {
+            outline: none;
+        }
+        .product-link:focus, .case-study-link:focus {
+            outline: 2px solid #3b82f6;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-brand">
+            <img src="rtpllogo.png" alt="Reputable Technologies Logo" class="logo">
+            <span class="company-name">Reputable Technologies Pvt Ltd</span>
+        </div>
+        <nav>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li class="has-submenu">
+                <a href="#company">Company <span class="dropdown-arrow">▼</span></a>
+                <ul class="submenu company-submenu">
+                    <li>
+                    <a href="about.html">
+                        <div>
+                        <strong>About Us</strong><br>
+                        <span>Our Story & Mission</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#team.html">
+                        <div>
+                        <strong>Our Team</strong><br>
+                        <span>Meet Our Experts</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#careers.html">
+                        <div>
+                        <strong>Careers</strong><br>
+                        <span>Join Our Team</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#news-events.html">
+                        <div>
+                        <strong>News & Events</strong><br>
+                        <span>Latest Updates</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#awards.html">
+                        <div>
+                        <strong>Awards</strong><br>
+                        <span>Recognition & Achievements</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#certifications.html">
+                        <div>
+                        <strong>Certifications</strong><br>
+                        <span>Quality Standards</span>
+                        </div>
+                    </a>
+                    </li>
+                </ul>
+                </li>
+                <li class="has-submenu">
+                <a href="#products">Products <span class="dropdown-arrow">▼</span></a>
+                <ul class="submenu products-submenu">
+                    <li>
+                    <a href="ezattendancepro.html">
+                        <div>
+                        <strong>EzAttendancePro</strong><br>
+                        <span>Attendance & Leave Management System</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="ezpayrollpro.html">
+                        <div>
+                        <strong>EzPayrollPro</strong><br>
+                        <span>Payroll Management System</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="ezaccesspro.html">
+                        <div>
+                        <strong>EzAccessPro</strong><br>
+                        <span>Access Management System</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="ezvms.html">
+                        <div>
+                        <strong>EzVMS</strong><br>
+                        <span>Visitor Management System</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="ezcrm.html">
+                        <div>
+                        <strong>EzCRM</strong><br>
+                        <span>Customer Relationship Management System</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="ezcanteen.html">
+                        <div>
+                        <strong>EzCanteen</strong><br>
+                        <span>Canteen Management System</span>
+                        </div>
+                    </a>
+                    </li>
+                </ul>
+                </li>
+                <li><a href="solutions.html">Solutions</a></li>
+                <li><a href="case_studies.html">Case Studies</a></li>
+                <li><a href="clientele.html">Clientele</a></li>
+                <li><a href="partner.html">Become A Partner</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <section class="software-solutions">
+        <div class="container">
+            <h1 class="section-title">Our Software Solutions</h1>
+            
+            <div class="tabs-container">
+                <div class="tabs">
+                    <button class="tab-button active" data-tab="custom">
+                        <div class="tab-icon">
+                            <img src="soft_solutions/s1.png" width="60" height="60" viewBox="0 0 48 48" >
+                        </div>
+                        <span>Custom Software Development</span>
+                    </button>
+                    
+                    <button class="tab-button" data-tab="mobile">
+                        <div class="tab-icon">
+                            <img src="soft_solutions/s2.png" width="60" height="60" viewBox="0 0 48 48" >
+                        </div>
+                        <span>Mobile App Development</span>
+                    </button>
+                    
+                    <button class="tab-button" data-tab="web">
+                        <div class="tab-icon">
+                            <img src="soft_solutions\s3.png" width="60" height="60" viewBox="0 0 48 48" >
+                        </div>
+                        <span>Web Design & Development</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="content-container">
+                <div class="tab-content active" id="custom">
+                    <div class="content-left">
+                        <h2>Custom <span class="light-text">Software Development</span></h2>
+                        <p>We builds customized software solutions for web and mobile. Our custom software development services encompass the full cycle of software development, from ideation to delivery and maintenance. Our software developers build custom software solutions</p>
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <span>Full-cycle development</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <span>Scalable architecture</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <span>Ongoing maintenance</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-right">
+                        <img src="soft_solutions/s7.jpg" alt="Custom Software Development Illustration" />
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="mobile">
+                    <div class="content-left">
+                        <h2>Mobile <span class="light-text">App Development</span></h2>
+                        <p>Our agile development patterns provide architecture for the mobile apps that are suitable for the multiple targeted operating environments. With latest tools, analytics and frameworks, we aim to provide top notch applications that are custom made especially for the gen next and are an instant puller for the mobile traffic.</p>
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <span>iOS & Android apps</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <span>Cross-platform solutions</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <span>App store optimization</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-right">
+                        <img src="soft_solutions/s6.jpg" alt="Mobile App Development Illustration" />
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="web">
+                    <div class="content-left">
+                        <h2>Web Design <span class="light-text">& Development</span></h2>
+                        <p>The purpose of a website is not just giving a business an online presence, but also making that presence work. At Reputable, we design websites with this intent, which is evident in our client's success. Our growth oriented web designing approach leverages latest trends & technologies to architect user interfaces that are creative, intuitive, and keep clients ever-ready to address their web-users' needs & expectations.</p>
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <span>Responsive design</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <span>E-commerce solutions</span>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <span>CMS integration</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-right">
+                        <img src="soft_solutions/s4.jpg" alt="Web Development Illustration" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Products Section -->
+    <section class="our-products" id="products">
+        <div class="container">
+            <h2 class="section-title">Our Products</h2>
+            <p class="section-subtitle">Comprehensive software solutions designed to streamline your business operations</p>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="soft_solutions/EzAttendancePro.png" alt="EzAttendancePro Icon">
+                    </div>
+                    <h3>EzAttendancePro</h3>
+                    <p>EzAttendancePro Software makes maintaining the attendance and leaves data easy, simple and faster by incorporating dynamic masters based on the company’s organizational structure; defines various groups to govern late coming, week off, overtime policies, compensatory off policies, paid holidays and so on.</p>
+                    <a href="ezattendancepro.html" class="product-link">Learn More</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="soft_solutions/EzVMS.png" alt="EzVMS Icon">
+                    </div>
+                    <h3>EzVMS</h3>
+                    <p>EzVMS (Visitor Management System) is a software solution or platform designed to track and manage visitors entering and exiting a facility or organization. It streamlines the process of visitor registration, check-in, and check-out, enhancing security, efficiency, and overall visitor experience.</p>
+                    <a href="ezvms.html" class="product-link">Learn More</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="soft_solutions/EzPayroll.png" alt="EzPayroll Icon">
+                    </div>
+                    <h3>EzPayrollPro</h3>
+                    <p>EzPayroll (Payroll Management System) is a software application or system designed to automate and streamline the process of managing an organization's payroll. It is used by businesses of all sizes to accurately calculate and process employee salaries, wages, deductions, and other related tasks.</p>
+                    <a href="ezpayrollpro.html" class="product-link">Learn More</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="soft_solutions/EzHR.png" alt="EzAccessPro Icon">
+                    </div>
+                    <h3>EzAccessPro</h3>
+                    <p>Access Control Software is a comprehensive security solution designed for modern organizations, integrating mobile access, QR codes, facial recognition, fingerprint scanning, and card-based authentication.It enhances security, streamlines operations, and provides a seamless user experience for corporate offices, societies, educational institutions, and high-security facilities.</p>
+                    <a href="ezaccesspro.html" class="product-link">Learn More</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="soft_solutions/EzCRM.png" alt="EzCRM Icon">
+                    </div>
+                    <h3>EzCRM</h3>
+                    <p>EzCRM (Customer Relationship Management System) is a software tool or platform that businesses use to manage and analyze their interactions with current and potential customers. CRM systems help organizations streamline their sales, marketing, and customer service processes, enabling them to build and maintain strong customer relationships.</p>
+                    <a href="ezcrm.html" class="product-link">Learn More</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="soft_solutions/EzCanteen.png" alt="EzCanteen Icon">
+                    </div>
+                    <h3>EzCanteen</h3>
+                    <p>EzCanteen (Canteen Management System) is a software application or platform designed to streamline and automate various operations related to managing a canteen or cafeteria. It is commonly used in schools, universities, corporate offices, and other institutions where there is a need to efficiently manage food services for a large number of people. The system typically integrates multiple functions, including menu planning, ordering, inventory management, payment processing, and reporting.</p>
+                    <a href="ezcanteen.html" class="product-link">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section class="case-studies" id="case-studies">
+        <div class="container">
+            <h2 class="section-title">Case Studies</h2>
+            <p class="section-subtitle">Real-world success stories showcasing our innovative solutions</p>
+            
+            <div class="case-studies-grid">
+                <div class="case-study-card">
+                    <div class="case-study-image">
+                        <img src="soft_solutions/motilal.jpg" alt="Motilal Oswal Financial Services Limited">
+                    </div>
+                    <div class="case-study-content">
+                        <h3>Motilal Oswal Financial Services Limited</h3>
+                        <p>Motilal Oswal, a renowned financial services firm, faced challenges in maintaining branch expenses, asset and inventory details manually using Excel sheets. This manual process was time-consuming and lacked efficiency. Motilal Oswal recognized the need to automate these processes and sought a comprehensive solution that would enable them to view and access data effortlessly. They also required a system to track compliances branch-wise and state-wise. To address these pain points, Motilal Oswal partnered with a Reputable Technlogies Private Limited to develop a customized software solution.</p>
+                        <a href="case_study_MOFSL.html" class="case-study-link">Read Full Case Study</a>
+                    </div>
+                </div>
+
+                <div class="case-study-card">
+                    <div class="case-study-image">
+                        <img src="soft_solutions/masoom.jpg" alt="MASOOM FOUNDATION">
+                    </div>
+                    <div class="case-study-content">
+                        <h3>MASOOM FOUNDATION</h3>
+                        <p>MASOOM FOUNDATION, dedicated to providing education and support to underprivileged children, faced challenges in managing student databases and academic results. The organization heavily relied on manual paperwork, which made it difficult to search for specific information and track transactions. Recognizing the need for a centralized system to streamline key processes and data management, the top chairperson of MASOOM NGO sought a solution that would integrate various functionalities into one platform. Reputable Technologies Private Limited provided MASOOM NGO with a customized web-based ERP software solution to address their requirements.</p>
+                        <a href="case_study_MASOOM.html" class="case-study-link">Read Full Case Study</a>
+                    </div>
+                </div>
+
+                <div class="case-study-card">
+                    <div class="case-study-image">
+                        <img src="soft_solutions/drdo.jpg" alt="DRDO's Research Center Imarat">
+                    </div>
+                    <div class="case-study-content">
+                        <h3>DRDO's Research Center Imarat</h3>
+                        <p>DRDO's Research Center Imarat (RCI) is a premier defense research laboratory located in Hyderabad, India. RCI is involved in the development of advanced defense technologies and systems. To streamline their operations and enhance security measures, RCI required a customized ERP software solution. This case study presents the development and implementation of the ERP software, addressing various modules and integration requirements.</p>
+                        <a href="case_study_DRDO.html" class="case-study-link">Read Full Case Study</a>
+                    </div>
+                </div>
+
+                <div class="case-study-card">
+                    <div class="case-study-image">
+                        <img src="soft_solutions/hsil.jpg" alt="HSIL-Hindware (Rajasthan & Hyderabad)">
+                    </div>
+                    <div class="case-study-content">
+                        <h3>HSIL-Hindware (Rajasthan & Hyderabad)</h3>
+                        <p>Comprehensive CRM and visitor management solution for a multi-location healthcare network, improving patient experience and operational efficiency while ensuring HIPAA compliance.</p>
+                        <a href="#case_study_HSIL.html" class="case-study-link">Read Full Case Study</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--main ez diagram in temp file-->
+    <section class="happy-customers">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Happy Customers</h2>
+                <p class="section-subtitle">Trusted by leading companies worldwide</p>
+            </div>
+            
+            <div class="customers-showcase">
+                <!-- First Row - Moving Left -->
+                <div class="logo-row" data-direction="left">
+                    <div class="logo-track">
+                        <div class="logo-item">
+                            <img src="customers_image/logo_1.png" alt="Customer Logo 1">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_2.png" alt="Customer Logo 2">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_3.png" alt="Customer Logo 3">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_4.png" alt="Customer Logo 4">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_5.png" alt="Customer Logo 5">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_6.png" alt="Customer Logo 6">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_7.png" alt="Customer Logo 7">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_8.png" alt="Customer Logo 8">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_9.png" alt="Customer Logo 9">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_10.png" alt="Customer Logo 10">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_11.png" alt="Customer Logo 11">
+                        </div>
+                        <!-- Duplicate for seamless loop -->
+                        <div class="logo-item">
+                            <img src="customers_image/logo_1.png" alt="Customer Logo 1">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_2.png" alt="Customer Logo 2">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_3.png" alt="Customer Logo 3">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_4.png" alt="Customer Logo 4">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_5.png" alt="Customer Logo 5">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_6.png" alt="Customer Logo 6">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_7.png" alt="Customer Logo 7">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_8.png" alt="Customer Logo 8">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_9.png" alt="Customer Logo 9">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_10.png" alt="Customer Logo 10">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_11.png" alt="Customer Logo 11">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second Row - Moving Right -->
+                <div class="logo-row" data-direction="right">
+                    <div class="logo-track">
+                        <div class="logo-item">
+                            <img src="customers_image/logo_12.png" alt="Customer Logo 12">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_13.png" alt="Customer Logo 13">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_14.png" alt="Customer Logo 14">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_15.png" alt="Customer Logo 15">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_16.png" alt="Customer Logo 16">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_17.png" alt="Customer Logo 17">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_18.png" alt="Customer Logo 18">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_19.png" alt="Customer Logo 19">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_20.png" alt="Customer Logo 20">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_21.png" alt="Customer Logo 21">
+                        </div>
+                        <!-- Duplicate for seamless loop -->
+                        <div class="logo-item">
+                            <img src="customers_image/logo_12.png" alt="Customer Logo 12">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_13.png" alt="Customer Logo 13">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_14.png" alt="Customer Logo 14">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_15.png" alt="Customer Logo 15">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_16.png" alt="Customer Logo 16">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_17.png" alt="Customer Logo 17">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_18.png" alt="Customer Logo 18">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_19.png" alt="Customer Logo 19">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_20.png" alt="Customer Logo 20">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_21.png" alt="Customer Logo 21">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <!-- Main Footer Content -->
+            <div class="footer-content">
+                <!-- Company Info Section -->
+                <div class="footer-section company-section">
+                    <div class="footer-logo">
+                        <img src="rtpllogo.png" alt="Reputable Technologies">
+                    </div>
+                    <p class="company-description">
+                        Leading provider of innovative software solutions, empowering businesses to thrive in the digital era with cutting-edge technology and exceptional service.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                <rect x="2" y="9" width="4" height="12"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="YouTube">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+                                <polygon points="9.75,15.02 15.5,11.75 9.75,8.48"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links Section -->
+                <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="case_studies.html">Case Studies</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services Section -->
+                <div class="footer-section">
+                    <h3 class="footer-title">Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="solutions.html">Software Development</a></li>
+                        <li><a href="solutions.html">Web Development</a></li>
+                        <li><a href="solutions.html">Mobile Applications</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info Section -->
+                <div class="footer-section contact-section">
+                    <h3 class="footer-title">Get in Touch</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                            </div>
+                            <div class="contact-text">
+                                <p>Unit No 101, 1st Floor, Shrey Building,<br>
+                                Chanakya Chowk, Virat Nagar, Virar West,<br>
+                                Mumbai, Maharashtra - 401303, INDIA</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                </svg>
+                            </div>
+                            <div class="contact-text">
+                                <p>+91 98672 64906<br>+91 98706 26205</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                            </div>
+                            <div class="contact-text">
+                                <p><a href="mailto:info@reputabletechnologies.com">info@reputabletechnologies.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Newsletter Section -->
+                <div class="footer-section newsletter-section">
+                    <h3 class="footer-title">Certifications</h3>
+                    <div class="certifications">
+                        <div class="cert-badges">
+                            <div class="cert-badge">ISO 9001:2015</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="copyright">
+                        <p>&copy; 2024 Reputable Technologies Pvt. Ltd. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const logoRows = document.querySelectorAll(".logo-row")
+
+            // Pause animations when user hovers over the section
+            const customersSection = document.querySelector(".happy-customers")
+
+            customersSection.addEventListener("mouseenter", () => {
+                logoRows.forEach((row) => {
+                const track = row.querySelector(".logo-track")
+                track.style.animationPlayState = "paused"
+                })
+            })
+
+            customersSection.addEventListener("mouseleave", () => {
+                logoRows.forEach((row) => {
+                const track = row.querySelector(".logo-track")
+                track.style.animationPlayState = "running"
+                })
+            })
+
+            // Intersection Observer for performance optimization
+            const observerOptions = {
+                root: null,
+                rootMargin: "0px",
+                threshold: 0.1,
+            }
+
+            const logoObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                const track = entry.target.querySelector(".logo-track")
+                if (entry.isIntersecting) {
+                    track.style.animationPlayState = "running"
+                } else {
+                    track.style.animationPlayState = "paused"
+                }
+                })
+            }, observerOptions)
+
+            logoRows.forEach((row) => {
+                logoObserver.observe(row)
+            })
+
+            // Handle visibility change to pause/resume animations
+            document.addEventListener("visibilitychange", () => {
+                const tracks = document.querySelectorAll(".logo-track")
+                if (document.visibilityState === "visible") {
+                tracks.forEach((track) => {
+                    track.style.animationPlayState = "running"
+                })
+                } else {
+                tracks.forEach((track) => {
+                    track.style.animationPlayState = "paused"
+                })
+                }
+            })
+
+            // Respect user's motion preferences
+            if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                const tracks = document.querySelectorAll(".logo-track")
+                tracks.forEach((track) => {
+                track.style.animationDuration = "80s"
+                })
+            }
+            })
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            // Function to switch tabs with smooth animation
+            function switchTab(targetTab) {
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(button => button.classList.remove('active'));
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Add active class to clicked button
+                const activeButton = document.querySelector(`[data-tab="${targetTab}"]`);
+                activeButton.classList.add('active');
+                
+                // Show corresponding content with staggered animation
+                setTimeout(() => {
+                    const activeContent = document.getElementById(targetTab);
+                    activeContent.classList.add('active');
+                }, 150);
+            }
+            
+            // Add click event listeners to tab buttons
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetTab = this.getAttribute('data-tab');
+                    switchTab(targetTab);
+                });
+            });
+            
+            // Keyboard navigation support
+            tabButtons.forEach((button, index) => {
+                button.addEventListener('keydown', function(e) {
+                    let newIndex;
+                    
+                    switch(e.key) {
+                        case 'ArrowLeft':
+                            newIndex = index > 0 ? index - 1 : tabButtons.length - 1;
+                            break;
+                        case 'ArrowRight':
+                            newIndex = index < tabButtons.length - 1 ? index + 1 : 0;
+                            break;
+                        case 'Home':
+                            newIndex = 0;
+                            break;
+                        case 'End':
+                            newIndex = tabButtons.length - 1;
+                            break;
+                        default:
+                            return;
+                    }
+                    
+                    e.preventDefault();
+                    tabButtons[newIndex].focus();
+                    const targetTab = tabButtons[newIndex].getAttribute('data-tab');
+                    switchTab(targetTab);
+                });
+            });
+
+            // Animate cards on scroll
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -100px 0px',
+                threshold: 0.1
+            };
+
+            const cardObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe product and case study cards
+            const cards = document.querySelectorAll('.product-card, .case-study-card');
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                cardObserver.observe(card);
+            });
+            
+            // Pause animations when user prefers reduced motion
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                const scrollTracks = document.querySelectorAll('.image-track');
+                scrollTracks.forEach(track => {
+                    track.style.animationDuration = '60s';
+                });
+            }
+            
+            // Pause scrolling animation on hover for better UX
+            const scrollRows = document.querySelectorAll('.scroll-row');
+            scrollRows.forEach(row => {
+                const track = row.querySelector('.image-track');
+                
+                row.addEventListener('mouseenter', function() {
+                    track.style.animationPlayState = 'paused';
+                });
+                
+                row.addEventListener('mouseleave', function() {
+                    track.style.animationPlayState = 'running';
+                });
+            });
+            
+            // Intersection Observer for performance optimization
+            const scrollObserverOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            
+            const scrollObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const track = entry.target.querySelector('.image-track');
+                    if (entry.isIntersecting) {
+                        track.style.animationPlayState = 'running';
+                    } else {
+                        track.style.animationPlayState = 'paused';
+                    }
+                });
+            }, scrollObserverOptions);
+            
+            scrollRows.forEach(row => {
+                scrollObserver.observe(row);
+            });
+            
+            // Handle visibility change to pause/resume animations
+            document.addEventListener('visibilitychange', function() {
+                const tracks = document.querySelectorAll('.image-track');
+                if (document.visibilityState === 'visible') {
+                    tracks.forEach(track => {
+                        track.style.animationPlayState = 'running';
+                    });
+                } else {
+                    tracks.forEach(track => {
+                        track.style.animationPlayState = 'paused';
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

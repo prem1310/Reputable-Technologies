@@ -1,0 +1,2024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        }
+
+        /* Happy Customers Section */
+        .happy-customers {
+        padding: 6rem 0;
+        background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+        position: relative;
+        overflow: hidden;
+        }
+
+        .happy-customers::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.03) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.03) 0%, transparent 50%);
+        pointer-events: none;
+        }
+
+        .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+        position: relative;
+        z-index: 1;
+        }
+
+        .section-title {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 800;
+        color: #1a202c;
+        margin-bottom: 1rem;
+        letter-spacing: -0.02em;
+        position: relative;
+        }
+
+        .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(90deg, #6366f1, #8b5cf6);
+        border-radius: 2px;
+        }
+
+        .section-subtitle {
+        font-size: clamp(1.1rem, 2vw, 1.3rem);
+        color: #4a5568;
+        max-width: 600px;
+        margin: 0 auto;
+        font-weight: 400;
+        }
+
+        /* Customers Showcase */
+        .customers-showcase {
+        position: relative;
+        z-index: 1;
+        mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+        }
+
+        .logo-row {
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        border-radius: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+        padding: 1.5rem 0;
+        }
+
+        .logo-row:last-child {
+        margin-bottom: 0;
+        }
+
+        .logo-track {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        width: max-content;
+        will-change: transform;
+        }
+
+        .logo-row[data-direction="left"] .logo-track {
+        animation: slideLeft 40s linear infinite;
+        }
+
+        .logo-row[data-direction="right"] .logo-track {
+        animation: slideRight 40s linear infinite;
+        }
+
+        .logo-item {
+        flex-shrink: 0;
+        width: 160px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: white;
+        border-radius: 1.5rem;
+        padding: 1.5rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+        }
+
+        .logo-item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        }
+
+        .logo-item:hover::before {
+        opacity: 1;
+        }
+
+        .logo-item:hover {
+        transform: translateY(-8px) scale(1.05);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        border-color: rgba(99, 102, 241, 0.2);
+        }
+
+        .logo-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        filter: grayscale(100%) opacity(0.7);
+        transition: all 0.4s ease;
+        position: relative;
+        z-index: 1;
+        }
+
+        .logo-item:hover img {
+        filter: grayscale(0%) opacity(1);
+        transform: scale(1.1);
+        }
+
+        /* Main Contact Section */
+        .main-contact {
+        padding: 6rem 0;
+        background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+        position: relative;
+        overflow: hidden;
+        }
+
+        .main-contact::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 30% 70%, rgba(99, 102, 241, 0.05) 0%, transparent 50%),
+            radial-gradient(circle at 70% 30%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+        pointer-events: none;
+        }
+
+        .contact-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: start;
+        position: relative;
+        z-index: 1;
+        }
+
+        /* Contact Form Section */
+        .contact-form-section {
+        background: white;
+        border-radius: 2rem;
+        padding: 3rem;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        position: relative;
+        overflow: hidden;
+        }
+
+        .contact-form-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #6366f1, #8b5cf6);
+        border-radius: 2px 2px 0 0;
+        }
+
+        .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        }
+
+        .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        }
+
+        .form-group {
+        position: relative;
+        }
+
+        .form-group input,
+        .form-group textarea {
+        width: 100%;
+        padding: 1.2rem;
+        border: 2px solid #e2e8f0;
+        border-radius: 1rem;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        background: #f8fafc;
+        font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+        outline: none;
+        border-color: #6366f1;
+        background: white;
+        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .form-group textarea {
+        resize: vertical;
+        min-height: 120px;
+        }
+
+        .error-message {
+        color: #ef4444;
+        font-size: 0.875rem;
+        margin-top: 0.5rem;
+        display: block;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        }
+
+        .error-message.show {
+        opacity: 1;
+        }
+
+        .send-btn {
+        background: linear-gradient(135deg, #1e40af, #3730a3);
+        color: white;
+        border: none;
+        padding: 1.2rem 2rem;
+        border-radius: 1rem;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-top: 1rem;
+        }
+
+        .send-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(30, 64, 175, 0.4);
+        }
+
+        .send-btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+        }
+
+        .send-btn svg {
+        transition: transform 0.3s ease;
+        }
+
+        .send-btn:hover svg {
+        transform: translateX(2px);
+        }
+
+        /* Contact Info Section */
+        .contact-info-section {
+        display: flex;
+        flex-direction: column;
+        }
+
+        .contact-info-card {
+        background: white;
+        border-radius: 2rem;
+        padding: 3rem;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        position: relative;
+        overflow: hidden;
+        }
+
+        .contact-info-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #06b6d4, #0891b2);
+        border-radius: 2px 2px 0 0;
+        }
+
+        .contact-title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #06b6d4;
+        margin-bottom: 2rem;
+        text-align: center;
+        }
+
+        .company-info {
+        margin-bottom: 2.5rem;
+        text-align: center;
+        }
+
+        .company-name {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 1rem;
+        }
+
+        .company-address {
+        color: #64748b;
+        line-height: 1.6;
+        font-size: 0.95rem;
+        }
+
+        .contact-details {
+        margin-bottom: 2.5rem;
+        }
+
+        .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        padding: 1rem;
+        border-radius: 1rem;
+        transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+        background: #f8fafc;
+        }
+
+        .contact-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        }
+
+        .phone-icon {
+        background: linear-gradient(135deg, #06b6d4, #0891b2);
+        color: white;
+        }
+
+        .email-icon {
+        background: linear-gradient(135deg, #06b6d4, #0891b2);
+        color: white;
+        }
+
+        .contact-text {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        }
+
+        .contact-label {
+        font-weight: 600;
+        color: #374151;
+        font-size: 0.9rem;
+        }
+
+        .contact-value {
+        color: #64748b;
+        font-size: 0.95rem;
+        }
+
+        .email-link {
+        color: #06b6d4;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        }
+
+        .email-link:hover {
+        color: #0891b2;
+        }
+
+        .business-hours {
+        border-top: 1px solid #e2e8f0;
+        padding-top: 2rem;
+        }
+
+        .hours-title {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #06b6d4;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        }
+
+        .hours-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        }
+
+        .hours-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.75rem;
+        border-radius: 0.75rem;
+        transition: all 0.3s ease;
+        }
+
+        .hours-item:hover {
+        background: #f8fafc;
+        }
+
+        .hours-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #64748b, #475569);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        }
+
+        .hours-text {
+        color: #64748b;
+        font-size: 0.95rem;
+        }
+
+        /* Success Message */
+        .success-message {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        border-radius: 2rem;
+        padding: 3rem;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        z-index: 1001;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        }
+
+        .success-message.show {
+        opacity: 1;
+        visibility: visible;
+        }
+
+        .success-content {
+        text-align: center;
+        }
+
+        .success-content svg {
+        color: #10b981;
+        margin-bottom: 1rem;
+        }
+
+        .success-content h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 0.5rem;
+        }
+
+        .success-content p {
+        color: #64748b;
+        font-size: 1rem;
+        }
+
+        /* Animations */
+        @keyframes slideLeft {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+        }
+
+        @keyframes slideRight {
+        0% {
+            transform: translateX(-50%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+        .logo-track {
+            gap: 2.5rem;
+        }
+
+        .logo-item {
+            width: 140px;
+            height: 90px;
+            padding: 1.2rem;
+        }
+
+        .contact-container {
+            gap: 3rem;
+        }
+
+        .contact-form-section,
+        .contact-info-card {
+            padding: 2.5rem;
+        }
+        }
+
+        @media (max-width: 768px) {
+        .container {
+            padding: 0 1.5rem;
+        }
+
+        .happy-customers {
+            padding: 4rem 0;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+        }
+
+        .logo-row {
+            margin-bottom: 1.5rem;
+            padding: 1rem 0;
+            border-radius: 1.5rem;
+        }
+
+        .logo-track {
+            gap: 2rem;
+        }
+
+        .logo-item {
+            width: 120px;
+            height: 80px;
+            padding: 1rem;
+            border-radius: 1rem;
+        }
+
+        .logo-item:hover {
+            transform: translateY(-4px) scale(1.02);
+        }
+
+        .main-contact {
+            padding: 4rem 0;
+        }
+
+        .contact-container {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .contact-form-section,
+        .contact-info-card {
+            padding: 2rem;
+        }
+
+        .form-row {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .contact-title {
+            font-size: 1.75rem;
+        }
+
+        .hours-title {
+            font-size: 1.2rem;
+        }
+        }
+
+        @media (max-width: 480px) {
+        .container {
+            padding: 0 1rem;
+        }
+
+        .customers-showcase {
+            mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+        }
+
+        .logo-track {
+            gap: 1.5rem;
+        }
+
+        .logo-item {
+            width: 100px;
+            height: 70px;
+            padding: 0.8rem;
+        }
+
+        .logo-row {
+            padding: 0.8rem 0;
+        }
+
+        .contact-form-section,
+        .contact-info-card {
+            padding: 1.5rem;
+            border-radius: 1.5rem;
+        }
+
+        .contact-title {
+            font-size: 1.5rem;
+        }
+
+        .company-name {
+            font-size: 1.1rem;
+        }
+
+        .send-btn {
+            padding: 1rem 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .contact-item {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 0.75rem;
+        }
+
+        .hours-item {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 0.5rem;
+        }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+        * {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+
+        .logo-row[data-direction="left"] .logo-track,
+        .logo-row[data-direction="right"] .logo-track {
+            animation-duration: 80s;
+        }
+
+        .logo-item:hover {
+            transform: none;
+        }
+        }
+
+        /* Focus states for accessibility */
+        .logo-item:focus-within,
+        .send-btn:focus,
+        .email-link:focus {
+        outline: 2px solid #6366f1;
+        outline-offset: 2px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+        outline: 2px solid #6366f1;
+        outline-offset: 2px;
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+        .logo-item {
+            border: 2px solid #6366f1;
+        }
+
+        .logo-item img {
+            filter: none;
+        }
+
+        .contact-form-section,
+        .contact-info-card {
+            border: 2px solid #6366f1;
+        }
+        }
+
+        /* Print styles */
+        @media print {
+        .happy-customers {
+            background: white !important;
+        }
+
+        .logo-row {
+            background: white !important;
+            box-shadow: none !important;
+            border: 1px solid #ccc !important;
+        }
+
+        .logo-track {
+            animation: none !important;
+        }
+
+        .main-contact {
+            background: white !important;
+        }
+
+        .contact-form-section,
+        .contact-info-card {
+            box-shadow: none !important;
+            border: 1px solid #ccc !important;
+        }
+        }
+
+        /* Content Styling */
+        .content-container {
+        position: relative;
+        min-height: 500px;
+        }
+
+        /* Our Products Section */
+        .our-products {
+        padding: 80px 0;
+        background: white;
+        }
+
+        .section-title {
+        text-align: center;
+        font-size: clamp(2rem, 4vw, 2.5rem);
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 0.5rem;
+        position: relative;
+        }
+
+        .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+        border-radius: 2px;
+        }
+
+        .section-subtitle {
+        text-align: center;
+        font-size: 1.1rem;
+        color: #64748b;
+        margin-bottom: 4rem;
+        }
+
+        .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+        }
+
+        .product-card {
+        background: white;
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        border: 1px solid #e2e8f0;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+        }
+
+        .product-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+        transform: scaleX(0);
+        transition: transform 0.4s ease;
+        }
+
+        .product-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        .product-card:hover::before {
+        transform: scaleX(1);
+        }
+
+        .product-image {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        transition: all 0.3s ease;
+        }
+
+        .product-card:hover .product-image {
+        transform: scale(1.05);
+        }
+
+        .product-image img {
+        width: 120px;
+        height: 120px;
+        object-fit: contain;
+        }
+
+        .product-card h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 1rem;
+        line-height: 1.3;
+        }
+
+        .product-card p {
+        color: #64748b;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        font-size: 1rem;
+        }
+
+        .product-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #3b82f6;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 0.95rem;
+        }
+
+        .product-link:hover {
+        color: #1d4ed8;
+        gap: 0.75rem;
+        }
+
+        .product-link::after {
+        content: "→";
+        transition: transform 0.3s ease;
+        }
+
+        .product-link:hover::after {
+        transform: translateX(4px);
+        }
+
+        /* Happy Customers Section */
+        .happy-customers {
+        padding: 80px 0;
+        background: white;
+        overflow: hidden;
+        }
+
+        .customers-slider {
+        margin-top: 3rem;
+        }
+
+        .scroll-row {
+        width: 100%;
+        height: 120px;
+        overflow: hidden;
+        position: relative;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        border-radius: 16px;
+        padding: 1rem 0;
+        }
+
+        .image-track {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        gap: 2rem;
+        padding: 0 2rem;
+        width: max-content;
+        will-change: transform;
+        }
+
+        .image-track img {
+        width: 150px;
+        height: 110px;
+        object-fit: contain;
+        flex-shrink: 0;
+        background: white;
+        border-radius: 12px;
+        padding: 1rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        filter: grayscale(100%) opacity(0.7);
+        }
+
+        .image-track img:hover {
+        filter: grayscale(0%) opacity(1);
+        transform: translateY(-4px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Animations */
+        .scroll-left .image-track {
+        animation: scrollLeft 30s linear infinite;
+        }
+
+        @keyframes scrollLeft {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+        }
+
+        .scroll-right .image-track {
+        animation: scrollRight 30s linear infinite;
+        }
+
+        @keyframes scrollRight {
+        0% {
+            transform: translateX(-50%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+        .tabs {
+            gap: 2rem;
+        }
+        .tab-content.active {
+            gap: 2rem;
+            padding: 2rem;
+        }
+        .products-grid {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .case-studies-grid {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        }
+
+        @media (max-width: 768px) {
+        .software-solutions,
+        .our-products,
+        .case-studies {
+            padding: 60px 0;
+        }
+        .tabs {
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+        }
+        .tab-button {
+            min-width: 280px;
+            max-width: 320px;
+        }
+        .tab-content.active {
+            flex-direction: column;
+            gap: 2rem;
+            text-align: center;
+            padding: 2rem 1.5rem;
+        }
+        .content-left {
+            max-width: none;
+        }
+        .content-left p {
+            text-align: left;
+        }
+        .products-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        .case-studies-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        .image-track {
+            gap: 1.5rem;
+            padding: 0 1rem;
+        }
+        .image-track img {
+            width: 100px;
+            height: 70px;
+        }
+        .scroll-row {
+            height: 100px;
+        }
+        }
+
+        @media (max-width: 480px) {
+        .container {
+            padding: 0 16px;
+        }
+        .tab-button {
+            min-width: 240px;
+            padding: 1rem;
+        }
+        .tab-content.active {
+            padding: 1.5rem 1rem;
+        }
+        .product-card,
+        .case-study-content {
+            padding: 1.5rem;
+        }
+        .image-track img {
+            width: 80px;
+            height: 60px;
+        }
+        .scroll-row {
+            height: 90px;
+        }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+        .scroll-left .image-track,
+        .scroll-right .image-track {
+            animation-duration: 60s;
+        }
+        .tab-button:hover .tab-icon {
+            transform: none;
+        }
+        }
+
+        /* Focus states for accessibility */
+        .tab-button:focus {
+        outline: 2px solid #3b82f6;
+        outline-offset: 2px;
+        }
+
+        .tab-button:focus:not(:focus-visible) {
+        outline: none;
+        }
+
+        .product-link:focus,
+        .case-study-link:focus {
+        outline: 2px solid #3b82f6;
+        outline-offset: 2px;
+        border-radius: 4px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-brand">
+            <img src="rtpllogo.png" alt="Reputable Technologies Logo" class="logo">
+            <span class="company-name">Reputable Technologies Pvt Ltd</span>
+        </div>
+        <nav>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li class="has-submenu">
+                <a href="#company">Company <span class="dropdown-arrow">▼</span></a>
+                <ul class="submenu company-submenu">
+                    <li>
+                    <a href="about.html">
+                        <div>
+                        <strong>About Us</strong><br>
+                        <span>Our Story & Mission</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#team.html">
+                        <div>
+                        <strong>Our Team</strong><br>
+                        <span>Meet Our Experts</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#careers.html">
+                        <div>
+                        <strong>Careers</strong><br>
+                        <span>Join Our Team</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#news-events.html">
+                        <div>
+                        <strong>News & Events</strong><br>
+                        <span>Latest Updates</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#awards.html">
+                        <div>
+                        <strong>Awards</strong><br>
+                        <span>Recognition & Achievements</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="#certifications.html">
+                        <div>
+                        <strong>Certifications</strong><br>
+                        <span>Quality Standards</span>
+                        </div>
+                    </a>
+                    </li>
+                </ul>
+                </li>
+                <li class="has-submenu">
+                <a href="#products">Products <span class="dropdown-arrow">▼</span></a>
+                <ul class="submenu products-submenu">
+                    <li>
+                    <a href="ezattendancepro.html">
+                        <div>
+                        <strong>EzAttendancePro</strong><br>
+                        <span>Attendance & Leave Management System</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="ezpayrollpro.html">
+                        <div>
+                        <strong>EzPayrollPro</strong><br>
+                        <span>Payroll Management System</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="ezaccesspro.html">
+                        <div>
+                        <strong>EzAccessPro</strong><br>
+                        <span>Access Management System</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="ezvms.html">
+                        <div>
+                        <strong>EzVMS</strong><br>
+                        <span>Visitor Management System</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="ezcrm.html">
+                        <div>
+                        <strong>EzCRM</strong><br>
+                        <span>Customer Relationship Management System</span>
+                        </div>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="ezcanteen.html">
+                        <div>
+                        <strong>EzCanteen</strong><br>
+                        <span>Canteen Management System</span>
+                        </div>
+                    </a>
+                    </li>
+                </ul>
+                </li>
+                <li><a href="solutions.html">Solutions</a></li>
+                <li><a href="case_studies.html">Case Studies</a></li>
+                <li><a href="clientele.html">Clientele</a></li>
+                <li><a href="partner.html">Become A Partner</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contact Us</h2>
+                <p class="section-subtitle">Get in touch with our team for any inquiries or support</p>
+            </div>
+            
+            <div class="contact-container">
+                <!-- Contact Form -->
+                <div class="contact-form-section">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" id="fullName" name="fullName" placeholder="Full Name *" required>
+                                <span class="error-message" id="fullNameError"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" id="contactNumber" name="contactNumber" placeholder="Contact Number *" required>
+                                <span class="error-message" id="contactNumberError"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" id="emailAddress" name="emailAddress" placeholder="Email Address *" required>
+                            <span class="error-message" id="emailAddressError"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Message *" rows="6" required></textarea>
+                            <span class="error-message" id="messageError"></span>
+                        </div>
+                        
+                        <button type="submit" class="send-btn">
+                            <span>SEND MESSAGE</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22,2 15,22 11,13 2,9 22,2"></polygon>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="contact-info-section">
+                    <div class="contact-info-card">
+                        <h3 class="contact-title">Get in Touch</h3>
+                        
+                        <div class="company-info">
+                            <h4 class="company-name">REPUTABLE TECHNOLOGIES PVT. LTD.</h4>
+                            <p class="company-address">
+                                Unit No 101, 1st Floor, Shrey Building, Chanakya Chowk, Virat Nagar, Virar West, Mumbai. Maharashtra - 401303. INDIA.
+                            </p>
+                        </div>
+
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="contact-icon phone-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                    </svg>
+                                </div>
+                                <div class="contact-text">
+                                    <span class="contact-label">Phone:</span>
+                                    <span class="contact-value">+91 98672 64906 / +91 98706 26205</span>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="contact-icon email-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                        <polyline points="22,6 12,13 2,6"></polyline>
+                                    </svg>
+                                </div>
+                                <div class="contact-text">
+                                    <span class="contact-label">Email:</span>
+                                    <a href="mailto:info@reputabletechnologies.com" class="contact-value email-link">info@reputabletechnologies.com</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="business-hours">
+                            <h4 class="hours-title">Business Hours</h4>
+                            <div class="hours-list">
+                                <div class="hours-item">
+                                    <div class="hours-icon">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <polyline points="12,6 12,12 16,14"></polyline>
+                                        </svg>
+                                    </div>
+                                    <span class="hours-text">Monday - Saturday: 10am to 7pm</span>
+                                </div>
+                                <div class="hours-item">
+                                    <div class="hours-icon">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"></circle>
+                                            <polyline points="12,6 12,12 16,14"></polyline>
+                                        </svg>
+                                    </div>
+                                    <span class="hours-text">Sunday: Closed</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success Message -->
+        <div class="success-message" id="successMessage">
+            <div class="success-content">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22,4 12,14.01 9,11.01"></polyline>
+                </svg>
+                <h3>Message Sent Successfully!</h3>
+                <p>Thank you for contacting us. We'll get back to you soon.</p>
+            </div>
+        </div>
+    </main>
+
+    <!--main ez diagram in temp file-->
+    <section class="happy-customers">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Happy Customers</h2>
+                <p class="section-subtitle">Trusted by leading companies worldwide</p>
+            </div>
+            
+            <div class="customers-showcase">
+                <!-- First Row - Moving Left -->
+                <div class="logo-row" data-direction="left">
+                    <div class="logo-track">
+                        <div class="logo-item">
+                            <img src="customers_image/logo_1.png" alt="Customer Logo 1">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_2.png" alt="Customer Logo 2">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_3.png" alt="Customer Logo 3">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_4.png" alt="Customer Logo 4">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_5.png" alt="Customer Logo 5">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_6.png" alt="Customer Logo 6">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_7.png" alt="Customer Logo 7">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_8.png" alt="Customer Logo 8">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_9.png" alt="Customer Logo 9">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_10.png" alt="Customer Logo 10">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_11.png" alt="Customer Logo 11">
+                        </div>
+                        <!-- Duplicate for seamless loop -->
+                        <div class="logo-item">
+                            <img src="customers_image/logo_1.png" alt="Customer Logo 1">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_2.png" alt="Customer Logo 2">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_3.png" alt="Customer Logo 3">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_4.png" alt="Customer Logo 4">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_5.png" alt="Customer Logo 5">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_6.png" alt="Customer Logo 6">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_7.png" alt="Customer Logo 7">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_8.png" alt="Customer Logo 8">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_9.png" alt="Customer Logo 9">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_10.png" alt="Customer Logo 10">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_11.png" alt="Customer Logo 11">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second Row - Moving Right -->
+                <div class="logo-row" data-direction="right">
+                    <div class="logo-track">
+                        <div class="logo-item">
+                            <img src="customers_image/logo_12.png" alt="Customer Logo 12">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_13.png" alt="Customer Logo 13">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_14.png" alt="Customer Logo 14">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_15.png" alt="Customer Logo 15">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_16.png" alt="Customer Logo 16">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_17.png" alt="Customer Logo 17">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_18.png" alt="Customer Logo 18">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_19.png" alt="Customer Logo 19">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_20.png" alt="Customer Logo 20">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_21.png" alt="Customer Logo 21">
+                        </div>
+                        <!-- Duplicate for seamless loop -->
+                        <div class="logo-item">
+                            <img src="customers_image/logo_12.png" alt="Customer Logo 12">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_13.png" alt="Customer Logo 13">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_14.png" alt="Customer Logo 14">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_15.png" alt="Customer Logo 15">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_16.png" alt="Customer Logo 16">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_17.png" alt="Customer Logo 17">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_18.png" alt="Customer Logo 18">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_19.png" alt="Customer Logo 19">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_20.png" alt="Customer Logo 20">
+                        </div>
+                        <div class="logo-item">
+                            <img src="customers_image/logo_21.png" alt="Customer Logo 21">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Products Section -->
+    <section class="our-products" id="products">
+        <div class="container">
+            <h2 class="section-title">Our Products</h2>
+            <p class="section-subtitle">Comprehensive software solutions designed to streamline your business operations</p>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="soft_solutions/EzAttendancePro.png" alt="EzAttendancePro Icon">
+                    </div>
+                    <h3>EzAttendancePro</h3>
+                    <p>EzAttendancePro Software makes maintaining the attendance and leaves data easy, simple and faster by incorporating dynamic masters based on the company’s organizational structure; defines various groups to govern late coming, week off, overtime policies, compensatory off policies, paid holidays and so on.</p>
+                    <a href="ezattendancepro.html" class="product-link">Learn More</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="soft_solutions/EzVMS.png" alt="EzVMS Icon">
+                    </div>
+                    <h3>EzVMS</h3>
+                    <p>EzVMS (Visitor Management System) is a software solution or platform designed to track and manage visitors entering and exiting a facility or organization. It streamlines the process of visitor registration, check-in, and check-out, enhancing security, efficiency, and overall visitor experience.</p>
+                    <a href="ezvms.html" class="product-link">Learn More</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="soft_solutions/EzPayroll.png" alt="EzPayroll Icon">
+                    </div>
+                    <h3>EzPayrollPro</h3>
+                    <p>EzPayroll (Payroll Management System) is a software application or system designed to automate and streamline the process of managing an organization's payroll. It is used by businesses of all sizes to accurately calculate and process employee salaries, wages, deductions, and other related tasks.</p>
+                    <a href="ezpayrollpro.html" class="product-link">Learn More</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="soft_solutions/EzHR.png" alt="EzAccessPro Icon">
+                    </div>
+                    <h3>EzAccessPro</h3>
+                    <p>Access Control Software is a comprehensive security solution designed for modern organizations, integrating mobile access, QR codes, facial recognition, fingerprint scanning, and card-based authentication.It enhances security, streamlines operations, and provides a seamless user experience for corporate offices, societies, educational institutions, and high-security facilities.</p>
+                    <a href="ezaccesspro.html" class="product-link">Learn More</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="soft_solutions/EzCRM.png" alt="EzCRM Icon">
+                    </div>
+                    <h3>EzCRM</h3>
+                    <p>EzCRM (Customer Relationship Management System) is a software tool or platform that businesses use to manage and analyze their interactions with current and potential customers. CRM systems help organizations streamline their sales, marketing, and customer service processes, enabling them to build and maintain strong customer relationships.</p>
+                    <a href="ezcrm.html" class="product-link">Learn More</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="soft_solutions/EzCanteen.png" alt="EzCanteen Icon">
+                    </div>
+                    <h3>EzCanteen</h3>
+                    <p>EzCanteen (Canteen Management System) is a software application or platform designed to streamline and automate various operations related to managing a canteen or cafeteria. It is commonly used in schools, universities, corporate offices, and other institutions where there is a need to efficiently manage food services for a large number of people. The system typically integrates multiple functions, including menu planning, ordering, inventory management, payment processing, and reporting.</p>
+                    <a href="ezcanteen.html" class="product-link">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="main.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+        const partnerBtns = document.querySelectorAll(".partner-btn")
+        const modalOverlay = document.getElementById("modalOverlay")
+        const closeBtn = document.getElementById("closeBtn")
+        const partnerForm = document.getElementById("partnerForm")
+        const contactForm = document.getElementById("contactForm")
+        const modalTitle = document.getElementById("modalTitle")
+        const successMessage = document.getElementById("successMessage")
+
+        // Form validation patterns
+        const validationPatterns = {
+            name: /^[a-zA-Z\s]{2,50}$/,
+            email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+            phone: /^[+]?[1-9][\d]{0,15}$/,
+            company: /^.{2,100}$/,
+            city: /^[a-zA-Z\s]{2,50}$/,
+            state: /^[a-zA-Z\s]{2,50}$/,
+            country: /^[a-zA-Z\s]{2,50}$/,
+            fullName: /^[a-zA-Z\s]{2,50}$/,
+            contactNumber: /^[+]?[1-9][\d]{0,15}$/,
+            emailAddress: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+            message: /^.{10,500}$/,
+        }
+
+        // Error messages
+        const errorMessages = {
+            name: "Please enter a valid name (2-50 characters, letters only)",
+            email: "Please enter a valid email address",
+            phone: "Please enter a valid phone number",
+            company: "Please enter a valid company name (2-100 characters)",
+            city: "Please enter a valid city name (2-50 characters, letters only)",
+            state: "Please enter a valid state name (2-50 characters, letters only)",
+            country: "Please enter a valid country name (2-50 characters, letters only)",
+            fullName: "Please enter a valid full name (2-50 characters, letters only)",
+            contactNumber: "Please enter a valid contact number",
+            emailAddress: "Please enter a valid email address",
+            message: "Please enter a message (10-500 characters)",
+        }
+
+        // Open modal
+        partnerBtns.forEach((btn) => {
+            btn.addEventListener("click", function () {
+            const formType = this.getAttribute("data-form-type")
+            modalTitle.textContent = formType === "partner" ? "Become a Partner" : "Apply for Partnership"
+            modalOverlay.classList.add("active")
+            document.body.style.overflow = "hidden"
+            })
+        })
+
+        // Close modal
+        function closeModal() {
+            modalOverlay.classList.remove("active")
+            document.body.style.overflow = ""
+            resetForm()
+        }
+
+        closeBtn.addEventListener("click", closeModal)
+
+        modalOverlay.addEventListener("click", (e) => {
+            if (e.target === modalOverlay) {
+            closeModal()
+            }
+        })
+
+        // ESC key to close modal
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && modalOverlay.classList.contains("active")) {
+            closeModal()
+            }
+        })
+
+        // Form validation
+        function validateField(fieldName, value) {
+            const pattern = validationPatterns[fieldName]
+            if (!pattern) return true
+            return pattern.test(value.trim())
+        }
+
+        function showError(fieldName, message) {
+            const errorElement = document.getElementById(fieldName + "Error")
+            if (errorElement) {
+            errorElement.textContent = message
+            errorElement.classList.add("show")
+            }
+        }
+
+        function hideError(fieldName) {
+            const errorElement = document.getElementById(fieldName + "Error")
+            if (errorElement) {
+            errorElement.classList.remove("show")
+            }
+        }
+
+        // Real-time validation for partner form
+        const partnerFormFields = ["name", "email", "phone", "company", "city", "state", "country"]
+
+        partnerFormFields.forEach((fieldName) => {
+            const field = document.getElementById(fieldName)
+            if (field) {
+            field.addEventListener("blur", function () {
+                const value = this.value.trim()
+                if (value && !validateField(fieldName, value)) {
+                showError(fieldName, errorMessages[fieldName])
+                } else {
+                hideError(fieldName)
+                }
+            })
+
+            field.addEventListener("input", () => {
+                hideError(fieldName)
+            })
+            }
+        })
+
+        // Real-time validation for contact form
+        const contactFormFields = ["fullName", "contactNumber", "emailAddress", "message"]
+
+        contactFormFields.forEach((fieldName) => {
+            const field = document.getElementById(fieldName)
+            if (field) {
+            field.addEventListener("blur", function () {
+                const value = this.value.trim()
+                if (value && !validateField(fieldName, value)) {
+                showError(fieldName, errorMessages[fieldName])
+                } else {
+                hideError(fieldName)
+                }
+            })
+
+            field.addEventListener("input", () => {
+                hideError(fieldName)
+            })
+            }
+        })
+
+        // Form submission for partner form
+        partnerForm.addEventListener("submit", function (e) {
+            e.preventDefault()
+
+            let isValid = true
+            const formData = new FormData(this)
+
+            // Validate all required fields
+            partnerFormFields.forEach((fieldName) => {
+            const value = formData.get(fieldName)
+            if (!value || !value.trim()) {
+                showError(fieldName, `${fieldName.charAt(0).toUpperCase() + fieldName.slice(1)} is required`)
+                isValid = false
+            } else if (!validateField(fieldName, value)) {
+                showError(fieldName, errorMessages[fieldName])
+                isValid = false
+            }
+            })
+
+            if (isValid) {
+            // Disable submit button
+            const submitBtn = this.querySelector(".submit-btn")
+            submitBtn.disabled = true
+            submitBtn.textContent = "Submitting..."
+
+            // Simulate form submission
+            setTimeout(() => {
+                closeModal()
+                showSuccessMessage()
+                submitBtn.disabled = false
+                submitBtn.textContent = "Apply"
+            }, 1000)
+            }
+        })
+
+        // Form submission for contact form
+        contactForm.addEventListener("submit", function (e) {
+            e.preventDefault()
+
+            let isValid = true
+            const formData = new FormData(this)
+
+            // Validate all required fields
+            contactFormFields.forEach((fieldName) => {
+            const value = formData.get(fieldName)
+            if (!value || !value.trim()) {
+                showError(
+                fieldName,
+                `${fieldName.replace(/([A-Z])/g, " $1").replace(/^./, (str) => str.toUpperCase())} is required`,
+                )
+                isValid = false
+            } else if (!validateField(fieldName, value)) {
+                showError(fieldName, errorMessages[fieldName])
+                isValid = false
+            }
+            })
+
+            if (isValid) {
+            // Disable submit button
+            const submitBtn = this.querySelector(".send-btn")
+            const originalText = submitBtn.innerHTML
+            submitBtn.disabled = true
+            submitBtn.innerHTML = "<span>SENDING...</span>"
+
+            // Simulate form submission
+            setTimeout(() => {
+                showSuccessMessage()
+                resetForm()
+                submitBtn.disabled = false
+                submitBtn.innerHTML = originalText
+            }, 1500)
+            } else {
+            setTimeout(() => {
+                scrollToFirstError()
+            }, 100)
+            }
+        })
+
+        // Show success message
+        function showSuccessMessage() {
+            successMessage.classList.add("show")
+            setTimeout(() => {
+            successMessage.classList.remove("show")
+            }, 3000)
+        }
+
+        // Reset form
+        function resetForm() {
+            partnerForm.reset()
+            contactForm.reset()
+            partnerFormFields.forEach((fieldName) => {
+            hideError(fieldName)
+            })
+            contactFormFields.forEach((fieldName) => {
+            hideError(fieldName)
+            })
+        }
+
+        // Prevent form submission on Enter key in input fields
+        const partnerInputs = partnerForm.querySelectorAll("input")
+        partnerInputs.forEach((input) => {
+            input.addEventListener("keydown", function (e) {
+            if (e.key === "Enter") {
+                e.preventDefault()
+                const nextInput = this.parentElement.nextElementSibling?.querySelector("input, textarea")
+                if (nextInput) {
+                nextInput.focus()
+                } else {
+                partnerForm.querySelector(".submit-btn").click()
+                }
+            }
+            })
+        })
+
+        const contactInputs = contactForm.querySelectorAll("input")
+        contactInputs.forEach((input) => {
+            input.addEventListener("keydown", function (e) {
+            if (e.key === "Enter") {
+                e.preventDefault()
+                const nextInput =
+                this.parentElement.nextElementSibling?.querySelector("input, textarea") ||
+                this.parentElement.parentElement.nextElementSibling?.querySelector("input, textarea")
+                if (nextInput) {
+                nextInput.focus()
+                } else {
+                contactForm.querySelector(".send-btn").click()
+                }
+            }
+            })
+        })
+
+        // Auto-resize textarea
+        const messageTextarea = document.getElementById("message")
+        if (messageTextarea) {
+            messageTextarea.addEventListener("input", function () {
+            this.style.height = "auto"
+            this.style.height = Math.min(this.scrollHeight, 200) + "px"
+            })
+        }
+
+        // Phone number formatting
+        const phoneInput = document.getElementById("contactNumber")
+        if (phoneInput) {
+            phoneInput.addEventListener("input", (e) => {
+            let value = e.target.value.replace(/\D/g, "")
+            if (value.length > 0 && !value.startsWith("91") && value.length <= 10) {
+                value = "91" + value
+            }
+            if (value.length > 12) {
+                value = value.slice(0, 12)
+            }
+            e.target.value = value
+            })
+        }
+
+        // Email validation enhancement
+        const emailInput = document.getElementById("emailAddress")
+        if (emailInput) {
+            emailInput.addEventListener("blur", function () {
+            const email = this.value.trim().toLowerCase()
+            this.value = email
+            })
+        }
+
+        // Name input enhancement
+        const nameInput = document.getElementById("fullName")
+        if (nameInput) {
+            nameInput.addEventListener("input", (e) => {
+            // Capitalize first letter of each word
+            let value = e.target.value
+            value = value.replace(/\b\w/g, (l) => l.toUpperCase())
+            e.target.value = value
+            })
+        }
+
+        // Smooth scroll to form on error
+        function scrollToFirstError() {
+            const firstError = document.querySelector(".error-message.show")
+            if (firstError) {
+            const formGroup = firstError.closest(".form-group")
+            if (formGroup) {
+                formGroup.scrollIntoView({ behavior: "smooth", block: "center" })
+                const input = formGroup.querySelector("input, textarea")
+                if (input) {
+                setTimeout(() => input.focus(), 300)
+                }
+            }
+            }
+        }
+        })
+
+    </script>
+    <footer class="main-footer">
+        <div class="container">
+            <!-- Main Footer Content -->
+            <div class="footer-content">
+                <!-- Company Info Section -->
+                <div class="footer-section company-section">
+                    <div class="footer-logo">
+                        <img src="rtpllogo.png" alt="Reputable Technologies">
+                    </div>
+                    <p class="company-description">
+                        Leading provider of innovative software solutions, empowering businesses to thrive in the digital era with cutting-edge technology and exceptional service.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                <rect x="2" y="9" width="4" height="12"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="YouTube">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+                                <polygon points="9.75,15.02 15.5,11.75 9.75,8.48"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links Section -->
+                <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="case_studies.html">Case Studies</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services Section -->
+                <div class="footer-section">
+                    <h3 class="footer-title">Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="solutions.html">Software Development</a></li>
+                        <li><a href="solutions.html">Web Development</a></li>
+                        <li><a href="solutions.html">Mobile Applications</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info Section -->
+                <div class="footer-section contact-section">
+                    <h3 class="footer-title">Get in Touch</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                            </div>
+                            <div class="contact-text">
+                                <p>Unit No 101, 1st Floor, Shrey Building,<br>
+                                Chanakya Chowk, Virat Nagar, Virar West,<br>
+                                Mumbai, Maharashtra - 401303, INDIA</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                </svg>
+                            </div>
+                            <div class="contact-text">
+                                <p>+91 98672 64906<br>+91 98706 26205</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                            </div>
+                            <div class="contact-text">
+                                <p><a href="mailto:info@reputabletechnologies.com">info@reputabletechnologies.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Newsletter Section -->
+                <div class="footer-section newsletter-section">
+                    <h3 class="footer-title">Certifications</h3>
+                    <div class="certifications">
+                        <div class="cert-badges">
+                            <div class="cert-badge">ISO 9001:2015</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="copyright">
+                        <p>&copy; 2024 Reputable Technologies Pvt. Ltd. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
